@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Tire">
+        <attr name="default_color" format="color"/>
+        <attr name="default_size" format="dimension"/>
+        <attr name="press_size" format="dimension"/>
+        <attr name="press_color" format="color"/>
+        <attr name="press_unit_size" format="dimension"/>
+        <attr name="press_unit_color" format="color"/>
+        <attr name="temp_size" format="dimension"/>
+        <attr name="temp_color" format="color"/>
+        <attr name="temp_unit_size" format="dimension"/>
+        <attr name="temp_unit_color" format="color"/>
+        <attr name="note_size" format="dimension"/>
+        <attr name="note_color" format="color"/>
+        <attr name="tire_orientation" format="integer"/>
+    </declare-styleable>
+</resources>

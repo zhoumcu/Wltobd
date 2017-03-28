@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:text="3.5L "
+        android:textSize="20sp"
+        android:padding="@dimen/dp8"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_carmodle" />
+
+    <LinearLayout
+        android:padding="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="排量：121L"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_output"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="发布年份：2014年"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_publish"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="@dimen/dp8"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="整车质量：132kg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_weight"
+            android:layout_weight="1" />
+
+        <TextView
+            android:text="变速箱类型：自动"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_gearbox"
+            android:layout_weight="1" />
+    </LinearLayout>
+    <View
+        style="@style/dividev"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="5dp"
+        />
+</LinearLayout>

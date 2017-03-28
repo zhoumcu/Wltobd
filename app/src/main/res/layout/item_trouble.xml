@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_troublecode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="故障编码："/>
+    <TextView
+        android:id="@+id/tv_troubleTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""/>
+    <TextView
+        android:id="@+id/tv_troubleContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="2"
+        android:drawablePadding="5dp"
+        android:drawableRight="@mipmap/box_arrow"
+        android:ellipsize="end"
+        android:text="内容："/>
+    <View
+        style="@style/dividev"
+        android:layout_height="5dp"
+        android:layout_margin="0dp"/>
+</LinearLayout>

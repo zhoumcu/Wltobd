@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grayd">
+    <LinearLayout
+        android:layout_margin="@dimen/dp12"
+        android:background="@color/graye"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img_logo"
+                android:layout_margin="@dimen/sp15"
+                android:layout_weight="1" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="338dp"
+                android:layout_height="96dp"
+                android:layout_weight="0.86">
+
+                <TextView
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    style="@style/staticTextStyle"
+                    android:id="@+id/tv_carname"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:text="TextView"
+                    android:textColor="@color/colorPrimaryDark"
+                    style="@style/staticTextStyle"
+                    android:id="@+id/tv_carserial"
+                    android:layout_weight="1" />
+            </LinearLayout>
+
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="排量"
+                style="@style/staticTextStyle"
+                android:layout_weight="1" />
+            <TextView
+                android:text="3498"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/showTextStyle"
+                android:id="@+id/tv_output"
+                />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="发布年份"
+                style="@style/staticTextStyle"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="2015年"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/showTextStyle"
+                android:id="@+id/tv_publish"
+                />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="整车质量"
+                style="@style/staticTextStyle"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="4000KG"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/showTextStyle"
+                android:id="@+id/tv_weight"
+                />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="变速类型"
+                style="@style/staticTextStyle"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="自动"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/showTextStyle"
+                android:id="@+id/tv_gearbox"
+                />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="档位"
+                style="@style/staticTextStyle"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="5档"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/showTextStyle"
+                android:id="@+id/tv_gear"
+                 />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:background="@color/grayd"
+            android:layout_height="8dp"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:id="@+id/btn_fromTyire"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="前轮胎型号"
+                style="@style/staticTextStyle"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="454L212"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/showTextStyle"
+                android:id="@+id/tv_fromtire"
+                android:drawablePadding="@dimen/dp12"
+                android:drawableRight="@mipmap/box_arrow"
+                 />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:id="@+id/btn_backTire"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="后轮胎型号"
+                style="@style/staticTextStyle"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="34321"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/showTextStyle"
+                android:id="@+id/tv_backtire"
+                android:drawablePadding="@dimen/dp12"
+                android:drawableRight="@mipmap/box_arrow"
+                />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:id="@+id/btn_oilType"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="燃油型号"
+                style="@style/staticTextStyle"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="93#（京92#）"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/showTextStyle"
+                android:id="@+id/tv_fueloil"
+                android:drawablePadding="@dimen/dp12"
+                android:drawableRight="@mipmap/box_arrow"
+                />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:id="@+id/btn_oilPrice"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="燃油价格"
+                style="@style/staticTextStyle"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="6"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/showTextStyle"
+                android:drawablePadding="@dimen/dp12"
+                android:id="@+id/tv_fueloilprice"
+                 />
+            <TextView
+                android:text="元"
+                android:textColor="@color/colorPrimaryDark"
+                style="@style/showTextStyle"
+                android:drawablePadding="@dimen/dp12"
+                android:drawableRight="@mipmap/box_arrow"
+                />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:id="@+id/btn_oilWeight"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:text="油箱容量"
+                style="@style/staticTextStyle"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="65"
+                android:textColor="@color/colorPrimaryDark"
+                android:drawablePadding="@dimen/dp12"
+                style="@style/showTextStyle"
+                android:id="@+id/tv_oilL"
+                 />
+            <TextView
+                android:text="L"
+                android:textColor="@color/colorPrimaryDark"
+                android:drawablePadding="@dimen/dp12"
+                style="@style/showTextStyle"
+                android:drawableRight="@mipmap/box_arrow"
+                />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:background="@color/grayd"
+            android:layout_height="10dp"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="混合动力"
+                    style="@style/staticTextStyle"
+                    />
+
+                <TextView
+                    android:text="汽车为混合动力车型"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+            </LinearLayout>
+
+            <RadioButton
+                android:background="@drawable/radio_selector"
+                android:button="@null"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/radioButton1"
+                android:layout_marginRight="20dp"
+                 />
+        </LinearLayout>
+        <View style="@style/dividev"
+            android:layout_margin="0dp"/>
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="启动车型"
+                    style="@style/staticTextStyle"
+                     />
+
+                <TextView
+                    android:text="汽车为启动车型"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                     />
+            </LinearLayout>
+
+            <RadioButton
+                android:text=""
+                android:background="@drawable/radio_selector"
+                android:button="@null"
+                android:id="@+id/radioButton2"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include layout="@layout/head_tire_frg"
+        android:visibility="gone"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@mipmap/dial"
+            android:id="@+id/img_bg" />
+
+        <TextView
+            android:text="升/100公里"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_unit"
+            android:layout_gravity="center|bottom"/>
+
+        <TextView
+            android:text="18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:textSize="45sp"
+            android:textColor="@color/red"
+            android:layout_gravity="center|bottom"
+            android:id="@+id/tv_speed" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:text="里程"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/ico_1"/>
+
+            <TextView
+                android:text="17km"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_travelDis"
+                />
+            <View
+                style="@style/dividev"/>
+        </LinearLayout>
+        <View
+            style="@style/divideh"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:text="平均速度"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/ico_2"
+                android:gravity="center" />
+
+            <TextView
+                android:text="60km/h"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_speedTra" />
+            <View
+                style="@style/dividev"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:visibility="gone"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="0.96"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:text="油耗"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/ico_3"/>
+
+            <TextView
+                android:text="12.1L"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_oilWeak"
+                 />
+
+        </LinearLayout>
+        <View
+            style="@style/divideh"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="0dp"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:text="花费"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/ico_4"/>
+
+            <TextView
+                android:text="72.00元"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/tv_space" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black">
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.77">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="800米"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:drawableTop="@mipmap/pic_road"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="进入中山收费站"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="剩余2分钟"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        style="@style/showTextLandLevel"
+                        android:text="88"
+                        android:id="@+id/tv_speedLand"
+                        />
+                    <TextView
+                        android:text="Km/h"
+                        style="@style/showTextLandLevel1"
+                       />
+
+                    <TextView
+                        style="@style/gridStyle1"
+                        android:layout_weight="1"
+                        android:text="速度"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <View style="@style/divideh"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        style="@style/showTextLandLevel"
+                        android:text="99+"
+                        android:id="@+id/tv_revolution"
+                        />
+                    <TextView
+                        android:text="r/min"
+                        style="@style/showTextLandLevel1" />
+
+                    <TextView
+                        style="@style/gridStyle1"
+                        android:layout_weight="1"
+                        android:text="转数"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <View style="@style/divideh"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        style="@style/showTextLandLevel"
+                        android:text="1000"
+                        android:id="@+id/tv_avrSpeed"
+                        />
+                    <TextView
+                        android:text="L/100km"
+                        style="@style/showTextLandLevel1" />
+
+                    <TextView
+                        style="@style/gridStyle1"
+                        android:layout_weight="1"
+                        android:text="平均速度"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <View style="@style/divideh"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        style="@style/showTextLandLevel"
+                        android:text="24.02"
+                        android:id="@+id/tv_pay"
+                        />
+                    <TextView
+                        android:text="元"
+                        style="@style/showTextLandLevel1" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:text="驾驶费用"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <View style="@style/divideh"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        style="@style/showTextLandLevel"
+                        android:text="直行"
+                        android:id="@+id/tv_orientation"
+                         />
+                    <TextView
+                        android:text=""
+                        style="@style/showTextLandLevel1" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:text="方向"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <View style="@style/divideh"/>
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <TextView
+                        style="@style/showTextLandLevel"
+                        android:text="88"
+                        android:id="@+id/tv_temp"
+                         />
+                    <TextView
+                        android:text="℃"
+                        style="@style/showTextLandLevel1"/>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:text="温度"
+                        android:textColor="@color/white"
+                        android:gravity="center"
+                        android:layout_alignParentBottom="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        />
+                </LinearLayout>
+                <View style="@style/divideh"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

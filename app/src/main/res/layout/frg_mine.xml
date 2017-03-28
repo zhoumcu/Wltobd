@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:background="@mipmap/top_bg"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <TextView
+            android:text="demo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_carname"
+            android:textColor="@color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/profile_image" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:alpha="0.5"
+                android:background="@color/colorPrimary"
+                android:gravity="center_vertical">
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:text="车辆"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_car"
+                    android:textColor="@color/white"
+                    android:layout_weight="1"
+                    android:drawableTop="@mipmap/my_pic1"
+                    android:gravity="center" />
+
+                <TextView
+                    android:text="盒子"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_obdBox"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:drawableTop="@mipmap/my_pic2_off"
+                    android:gravity="center" />
+
+                <TextView
+                    android:text="名片"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_businessCard"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:drawableTop="@mipmap/my_pic3"
+                    android:gravity="center" />
+
+                <TextView
+                    android:text="二维码"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_scanCode"
+                    android:layout_weight="1"
+                    android:textColor="@color/white"
+                    android:drawableTop="@mipmap/my_pic4"
+                    android:gravity="center" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@mipmap/my_pic1"
+            app:civ_border_width="1dp"
+            android:layout_marginTop="10dp"
+            app:civ_border_color="#55ffffff"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
+
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/btn_chart"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="排行榜"
+                    android:layout_marginTop="@dimen/sp15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:drawableTop="@mipmap/ico_bhb"
+                    />
+
+                <TextView
+                    android:text="油耗排行，里程排行，等级排行"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <View style="@style/dividev" />
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:id="@+id/tv_carCheck"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="车辆检测"
+                    android:layout_marginTop="@dimen/sp15"
+                    android:drawableTop="@mipmap/ico_aq"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+
+                <TextView
+                    android:text="您需要对您的汽车进行人工检查"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+                <View style="@style/dividev" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/tv_searchcode"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="故障码查询"
+                    android:layout_marginTop="@dimen/sp15"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:drawableTop="@mipmap/ico_cx"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:text="油耗排行，里程排行，等级排行"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+                <View style="@style/dividev" />
+            </LinearLayout>
+            <View style="@style/divideh" />
+            <LinearLayout
+                android:id="@+id/tv_activity"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="活动"
+                    android:layout_marginTop="@dimen/sp15"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:drawableTop="@mipmap/ico_hd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:text="您需要对您的汽车进行人工检测"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+                <View style="@style/dividev"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/tv_obdConfig"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="OBD配置"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/sp15"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:drawableTop="@mipmap/ico_cx"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:text="设置OBD各项参数"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:id="@+id/tv_obdpaired"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:text="OBD配对"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/sp15"
+                    android:textColor="@color/black"
+                    android:layout_width="match_parent"
+                    android:drawableTop="@mipmap/ico_cx"
+                    android:layout_height="wrap_content"
+                    />
+                <TextView
+                    android:text="设置OBD各项参数"
+                    android:gravity="center"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:background="@mipmap/lc_bg">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                android:lineSpacingExtra="15dp"
+                android:lineSpacingMultiplier="2"
+                android:textStyle="bold"
+                android:text="123132"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:gravity="bottom"
+            android:layout_gravity="center|bottom"
+            android:layout_height="wrap_content">
+
+            <com.czp.library.ArcProgress
+                android:id="@+id/myProgress01"
+                android:layout_width="100dp"
+                android:layout_height="101dp"
+                app:radius="50dp"
+                app:borderWidth="6dp"
+                app:unprogresColor="@color/back"
+                app:progressColor="@color/colorPrimaryDark"
+                app:tickDensity="10" />
+
+            <com.czp.library.ArcProgress
+                android:id="@+id/myProgress02"
+                android:layout_width="143dp"
+                android:layout_height="133dp"
+                app:radius="70dp"
+                app:unprogresColor="@color/back"
+                app:progressColor="@color/colorPrimaryDark"
+                app:tickDensity="4" />
+            <com.czp.library.ArcProgress
+                android:id="@+id/myProgress03"
+                app:borderWidth="6dp"
+                android:layout_width="match_parent"
+                android:layout_height="99dp"
+                app:radius="50dp"
+                app:unprogresColor="@color/green"
+                app:progressColor="@color/greendark"
+                app:tickDensity="10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="查看下次保养计划"
+                android:background="@drawable/quick_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/white"
+                android:id="@+id/btn_quickCheck" />
+
+            <TextView
+                android:text="添加保养计划      "
+                android:background="@drawable/performs_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:id="@+id/btn_performsCheck" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="保养计划"
+                style="@style/gridStyle"
+                android:id="@+id/tv_itinerary"
+                android:drawableTop="@mipmap/ico_22"
+                />
+            <View style="@style/divideh"/>
+            <TextView
+                android:text="保养项目"
+                style="@style/gridStyle"
+                android:id="@+id/tv_powerSys"
+                android:drawableTop="@mipmap/ico_23"
+                />
+            <View style="@style/divideh"/>
+            <TextView
+                android:text="保养手册"
+                style="@style/gridStyle"
+                android:id="@+id/tv_innerAirSys"
+                android:drawableTop="@mipmap/ico_24"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="小安专家"
+                style="@style/gridStyle"
+                android:id="@+id/tv_controlSys"
+                android:drawableBottom="@drawable/tab_bg_transparent"
+                android:drawableTop="@mipmap/ico_25"
+                />
+            <View style="@style/divideh"/>
+            <TextView
+                android:text="车辆故障"
+                style="@style/gridStyle"
+                android:id="@+id/tv_coolSys"
+                android:drawableBottom="@drawable/tab_bg_transparent"
+                android:drawableTop="@mipmap/ico_25"
+                />
+            <View style="@style/divideh"/>
+            <TextView
+                android:text="完善信息"
+                style="@style/gridStyle"
+                android:id="@+id/tv_expert"
+                android:drawableBottom="@drawable/tab_bg_transparent"
+                android:drawableTop="@mipmap/ico_26"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

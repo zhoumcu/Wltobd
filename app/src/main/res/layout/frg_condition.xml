@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="fill_parent"
+    android:weightSum="2">
+
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="260dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:gravity="bottom"
+            android:layout_gravity="center|bottom"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="剩余油量"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:drawableTop="@mipmap/car_pic1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="存在故障"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:drawableTop="@mipmap/car_pic2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:text="1"
+                    android:background="@drawable/note_selector"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_gravity="bottom|right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView" />
+            </FrameLayout>
+            <TextView
+                android:text="人工检测"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:drawableTop="@mipmap/car_pic3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="快速检测"
+                android:background="@drawable/quick_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/white"
+                android:id="@+id/btn_quickCheck" />
+
+            <TextView
+                android:text="性能检测"
+                android:background="@drawable/performs_check"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:id="@+id/btn_performsCheck" />
+        </LinearLayout>
+        <View
+           style="@style/dividev"/>
+        <TextView
+            android:text="根据对行车电脑数据的监测分析，小安发现您的车良好"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_carname"
+            android:layout_marginTop="19dp"
+            android:textColor="@color/white9"
+           />
+
+        <TextView
+            android:text="最近一次检查：2016-12-30"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_carserial"
+            android:textColor="@color/white9"
+            android:layout_marginTop="5dp"
+           />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="故障检测系统"
+            style="@style/gridStyle"
+            android:id="@+id/tv_itinerary"
+            android:drawableTop="@mipmap/ico_jc"
+            />
+        <View style="@style/divideh"/>
+        <TextView
+            android:text="电源系统"
+            style="@style/gridStyle"
+            android:id="@+id/tv_powerSys"
+            android:drawableTop="@mipmap/ico_dc"
+             />
+        <View style="@style/divideh"/>
+        <TextView
+            android:text="进气系统"
+            style="@style/gridStyle"
+            android:id="@+id/tv_innerAirSys"
+            android:drawableTop="@mipmap/ico_jf"
+             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:text="怠速控制系统"
+            style="@style/gridStyle"
+            android:id="@+id/tv_controlSys"
+            android:drawableBottom="@drawable/tab_bg_transparent"
+            android:drawableTop="@mipmap/ico_ds"
+            />
+        <View style="@style/divideh"/>
+        <TextView
+            android:text="冷却系统"
+            style="@style/gridStyle"
+            android:id="@+id/tv_coolSys"
+            android:drawableBottom="@drawable/tab_bg_transparent"
+            android:drawableTop="@mipmap/ico_lq"
+            />
+        <View style="@style/divideh"/>
+        <TextView
+            android:text="小安专家"
+            style="@style/gridStyle"
+            android:id="@+id/tv_expert"
+            android:drawableBottom="@drawable/tab_bg_transparent"
+            android:drawableTop="@mipmap/ico_zj"
+            />
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="行程数据 燃油型号："
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView15"
+                android:layout_weight="1" />
+
+            <TextView
+                android:text="93#（京92#）油价：6元"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView16"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+        <View style="@style/dividev"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="94.91"
+                    style="@style/showText"
+                    android:id="@+id/tv_speed"
+                    />
+
+
+                <TextView
+                    android:text="km/h"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="平均速度"
+                    style="@style/showStaticText"
+                    />
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="94.91"
+                    style="@style/showText"
+                    android:id="@+id/tv_travelTime"
+                    />
+                <TextView
+                    android:text="min"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="驾驶时长"
+                    style="@style/showStaticText"
+                    />
+
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="80dp"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="946"
+                    style="@style/showText"
+                    android:id="@+id/tv_travelDis"
+                    />
+                <TextView
+                    android:text="km"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="里程"
+                    style="@style/showStaticText"
+                    />
+
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:minWidth="80dp"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="94.91"
+                    style="@style/showText"
+                    android:id="@+id/tv_oilWeak"
+                    />
+
+                <TextView
+                    android:text="L"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="油耗"
+                    style="@style/showStaticText"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+        <View style="@style/dividev"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="94.91"
+                    style="@style/showText"
+                    android:id="@+id/tv_avrOilWeak"
+                    />
+                <TextView
+                    android:text="km/h"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="平均油耗"
+                    style="@style/showStaticText"
+                    />
+
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="94.91"
+                    style="@style/showText"
+                    android:id="@+id/tv_avrOilWeakDel"
+                    />
+                <TextView
+                    android:text="min"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="平均油耗 \n（去怠速）"
+                    style="@style/showStaticText"
+                    />
+
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="946"
+                    style="@style/showText"
+                    android:id="@+id/tv_sumSpace"
+                    />
+                <TextView
+                    android:text="km"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="总花费"
+                    style="@style/showStaticText"
+                    />
+
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="94.91"
+                    style="@style/showText"
+                    android:id="@+id/tv_spaceOfKm"
+                    />
+
+                <TextView
+                    android:text="L"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="每公里花费"
+                    style="@style/showStaticText"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <View style="@style/dividev"/>
+        <TextView
+            android:text="车辆性能数据"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView23" />
+        <View style="@style/dividev"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="94"
+                    style="@style/showText"
+                    android:id="@+id/tv_maxSpeed"
+                    />
+                <TextView
+                    android:text="km/h"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="最大速度"
+                    style="@style/showStaticText"
+                    />
+
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="9411"
+                    style="@style/showText"
+                    android:id="@+id/tv_maxRevolution"
+                    />
+                <TextView
+                    android:text="r/min"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="最大转速"
+                    style="@style/showStaticText"
+                    />
+
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="80"
+                    style="@style/showText"
+                    android:id="@+id/tv_maxWaterTemp"
+                    />
+                <TextView
+                    android:text="℃"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="最高水温"
+                    style="@style/showStaticText"
+                    />
+
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="36"
+                    style="@style/showText"
+                    android:id="@+id/tv_minWaterTemp"
+                    />
+
+                <TextView
+                    android:text="℃"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="最低水温"
+                    style="@style/showStaticText"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+        <View style="@style/dividev"/>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:text="2.7"
+                    style="@style/showText"
+                    android:id="@+id/tv_maxAcceleration"
+                    />
+                <TextView
+                    android:text="g"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="最大加速度"
+                    style="@style/showStaticText"
+                    />
+
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="94.91"
+                    style="@style/showText"
+                    android:id="@+id/tv_maxOpen"
+                    />
+                <TextView
+                    android:text="min"
+                    style="@style/showTextUnit"
+                    />
+                <TextView
+                    android:text="最大节气\n  门开度"
+                    style="@style/showStaticText"
+                    />
+
+
+            </LinearLayout>
+            <View style="@style/divideh"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_weight="1"
+                android:minWidth="80dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+        </LinearLayout>
+        <View style="@style/dividev"/>
+
+        <TextView
+            android:text="左前轮胎"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/spread_pie_chart1"
+            android:layout_width="match_parent"
+            android:layout_height="200dip" />
+        <TextView
+            android:text="右前轮胎"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+             />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/spread_pie_chart2"
+            android:layout_width="match_parent"
+            android:layout_height="200dip" />
+        <TextView
+            android:text="左后轮胎"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/spread_pie_chart3"
+            android:layout_width="match_parent"
+            android:layout_height="200dip" />
+        <TextView
+            android:text="右后轮胎"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/spread_pie_chart4"
+            android:layout_width="match_parent"
+            android:layout_height="200dip" />
+    </LinearLayout>
+
+</ScrollView>

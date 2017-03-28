@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fitsSystemWindows="true"
+    android:background="@color/grayd"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="fill_parent"
+    android:weightSum="1">
+    <RelativeLayout
+        android:id="@+id/rl_1"
+        android:layout_width="fill_parent"
+        android:layout_height="90.0dip"
+        android:layout_above="@+id/btnSure"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp">
+
+        <RelativeLayout
+            android:id="@+id/layoutPhone"
+            android:background="@color/graye"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip">
+
+            <EditText
+                android:id="@+id/phone"
+                style="@style/loginEditStyle"
+                android:hint="@string/phone"
+                android:inputType="number"
+                android:layout_toLeftOf="@+id/tv_find"
+                />
+
+            <ImageView
+                android:id="@+id/imgCancel"
+                android:layout_width="16.0dip"
+                android:layout_height="16.0dip"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12.0dip"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/tv_find"
+                style="@style/loginTextStyle"
+                android:text="@string/findAccount"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:background="@color/graye"
+            android:layout_below="@+id/layoutPhone">
+
+            <View style="@style/dividev"
+                android:layout_margin="0dp"/>
+
+            <TextView
+                android:id="@+id/btn_pwd"
+                style="@style/loginTextStyle"
+                android:text="@string/findPwd"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <EditText
+                android:id="@+id/tv_pwd"
+                style="@style/loginEditStyle"
+                android:hint="@string/passWord"
+                android:inputType="textPassword"
+                android:layout_toLeftOf="@+id/btn_pwd"
+                android:layout_toStartOf="@+id/btn_pwd" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btnSure"
+        style="@style/loginBtnStyle"
+        android:text="@string/loginBtn" />
+
+    <Button
+        android:id="@+id/btnClose"
+        android:layout_width="20.0dip"
+        android:layout_height="20.0dip"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40.0dip"
+        android:visibility="gone"
+         />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/tv_load"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/btnSure"
+        android:layout_centerHorizontal="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/btnRegister"
+        android:padding="10dp"
+        android:layout_margin="5dp">
+
+        <TextView
+            style="@style/loginTextStyle"
+            android:text="@string/register"
+             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="@string/registerBtn"
+            android:textColor="@color/black"
+            android:layout_alignParentBottom="true"
+            />
+    </LinearLayout>
+</LinearLayout>

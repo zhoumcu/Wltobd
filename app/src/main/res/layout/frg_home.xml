@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <RelativeLayout
+        android:background="@color/colorBackDark"
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <TextView
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_faultNote"
+            android:textColor="@color/black"
+            android:background="@drawable/note_selector"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/img_icon"
+            android:layout_toEndOf="@+id/img_icon" />
+
+        <TextView
+            android:text="连接时如有弹出蓝牙对话框，请点取消！"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_note"
+            android:background="@drawable/back_selector"
+            android:drawableLeft="@mipmap/ico_ann"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="5dp"/>
+
+        <TextView
+            android:text="个故障码"
+            android:textColor="@color/black"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_faultNote"
+            android:layout_toEndOf="@+id/tv_faultNote"
+            android:id="@+id/textView2" />
+
+        <TextView
+            android:text="保时捷 918"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_carname"
+            android:layout_alignTop="@+id/img_icon"
+            android:layout_toRightOf="@+id/img_icon"
+            android:layout_toEndOf="@+id/img_icon" />
+
+        <TextView
+            android:text="连接智能盒子"
+            android:id="@+id/img_open"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/button_kopie"
+            android:layout_marginRight="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_alignTop="@+id/tv_carname"
+            android:layout_alignRight="@+id/tv_note"
+            android:layout_alignEnd="@+id/tv_note" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            app:srcCompat="@mipmap/my_pic1"
+            android:layout_marginLeft="23dp"
+            android:layout_marginStart="23dp"
+            android:id="@+id/img_icon"
+            android:scaleType="centerCrop"
+            android:layout_alignBottom="@+id/textView2"
+            android:layout_alignLeft="@+id/tv_note"
+            android:layout_alignStart="@+id/tv_note" />
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                style="@style/gridStyle"
+                android:text="智能启动"
+                android:id="@+id/tv_autoStart"
+                android:drawableTop="@mipmap/ico_13"
+                android:layout_height="match_parent" />
+            <View style="@style/divideh"/>
+            <TextView
+                android:text="静音模式"
+                style="@style/gridStyle"
+                android:id="@+id/tv_quietMode"
+                android:drawableTop="@mipmap/ico_14"
+                android:layout_height="match_parent" />
+            <View style="@style/divideh"/>
+            <TextView
+                android:text="后台模式"
+                style="@style/gridStyle"
+                android:id="@+id/tv_backgroundMode"
+                android:drawableTop="@mipmap/ico_15"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="胎压监测"
+                style="@style/gridStyle"
+                android:id="@+id/tv_monitorTire"
+                android:drawableTop="@mipmap/ico_16"
+                />
+            <View style="@style/divideh"/>
+            <TextView
+                android:text="车况检测"
+                style="@style/gridStyle"
+                android:id="@+id/tv_itinerary"
+                android:drawableTop="@mipmap/ico_17"
+                />
+            <View style="@style/divideh"/>
+            <TextView
+                android:text="故障码查询"
+                style="@style/gridStyle"
+                android:id="@+id/tv_searchcode"
+                android:drawableTop="@mipmap/ico_18"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="排行榜"
+                style="@style/gridStyle"
+                android:drawableBottom="@drawable/tab_bg_transparent"
+                android:id="@+id/tv_rank"
+                android:drawableTop="@mipmap/ico_19"
+                />
+            <View style="@style/divideh"/>
+
+            <TextView
+                android:text="活动"
+                style="@style/gridStyle"
+                android:id="@+id/tv_activity"
+                android:drawableTop="@mipmap/ico_20"
+                android:drawableBottom="@drawable/tab_bg_transparent"
+
+                />
+
+            <View style="@style/divideh"/>
+            <TextView
+                android:text="通知"
+                style="@style/gridStyle"
+                android:id="@+id/tv_testble"
+                android:drawableTop="@mipmap/ico_21"
+                android:drawableBottom="@drawable/tab_bg_transparent"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

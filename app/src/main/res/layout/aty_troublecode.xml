@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SearchView
+        android:id="@+id/search_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:text="没查询到数据！"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/cardview_dark_background"
+        android:drawableRight="@android:drawable/ic_media_play"
+        android:id="@+id/tv_nodata"
+        android:padding="5dp"
+        android:visibility="gone"
+        android:gravity="center_vertical" />
+    <com.jude.easyrecyclerview.EasyRecyclerView
+        android:id="@+id/recycler"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.jude.easyrecyclerview.EasyRecyclerView>
+    <TextView
+        android:text="故障码紧急级别的说明"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:layout_marginBottom="10dp"
+        />
+
+    <TextView
+        android:text="危险：需要即刻停车处理，继续行驶可能导致车辆部件受损。"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+         />
+
+    <TextView
+        android:text="严重：车辆可以缓慢行驶，但应今早去维修厂处理。"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp" />
+
+    <TextView
+        android:text="警告：暂不处理不会影响驾驶，建议向专业人员咨询。"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"/>
+</LinearLayout>

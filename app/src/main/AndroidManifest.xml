@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.xiaoan.obd.obdproject">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:name=".app.APP"
+        android:hardwareAccelerated="false"
+        android:theme="@style/AppTheme">
+        <activity android:name=".module.ViewPagerActivity"
+            android:theme="@style/Notitle">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".module.TestView"/>
+        <activity android:name=".module.obd.ObdPairedActivity"/>
+        <activity android:name=".module.login.LoginActivity"
+            android:theme="@style/Notitle"/>
+
+        <activity android:name=".module.main.HomeActivity"
+            android:theme="@style/Notitle"/>
+        <activity android:name=".module.login.FindAccountActivity"
+            android:label="找回帐号"/>
+        <activity android:name=".module.login.RegisterActivity"
+            android:label="注册">
+
+        </activity>
+        <activity android:name=".module.login.FindPwdActivity"
+            android:label="找回密码"
+            />
+        <activity android:name=".module.tire.TireHomeActivity"
+            android:label="胎压监测"
+            android:theme="@style/Notitle"
+            />
+        <activity android:name=".module.trouble.TroubleCodeSearchActivity"
+            android:label="故障码查询"/>
+        <activity android:name=".module.travel.TravelInfoActivity"
+            android:label="车况详情"/>
+        <activity android:name=".module.car.CarListActivity"
+            android:label="车辆列表"/>
+        <activity android:name=".module.car.add.CarSelectBrandListActivity"
+            android:label="选择品牌"/>
+        <activity android:name=".module.car.add.CarSelectModelListActivity"
+            android:label="选择车型"/>
+        <activity android:name=".module.car.add.CarSelectSeriesListActivity"
+            android:label="选择车系"/>
+        <activity android:name=".module.car.add.CarAllInfoActivity"
+            android:label="车辆详情"/>
+        <activity android:name=".module.trouble.ConditionActivity"
+            android:label="车况检测"/>
+        <activity android:name=".module.mine.ObdBoxActivity"
+            android:label="OBD盒子"/>
+        <activity android:name=".module.mine.PersonInfoActivity"
+            android:label="个人信息"/>
+        <activity android:name=".module.mine.ChangeNameActivity"
+            android:label="修改昵称"/>
+        <activity android:name=".module.mine.ChangePhoneActivity"
+            android:label="修改手机号码"/>
+        <activity android:name=".module.car.choose.ChangeActivity"
+            android:label="选择"/>
+        <activity android:name=".module.car.choose.ChooceCommonActivity"
+            android:label="选择"/>
+        <activity android:name=".module.trouble.TroubleCodeInfoActivity"
+            android:label="故障详情"/>
+        <activity android:name=".module.obd.ObdConfigActivity"
+            android:label="参数配置"/>
+        <service android:name=".server.bluetooth.BluetoothLeService"/>
+        <service android:name=".server.UploadDataServer"
+            android:process=":background"/>
+        <activity android:name=".MainActivity"/>
+    </application>
+
+</manifest>
