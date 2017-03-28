@@ -108,8 +108,5 @@ public class CarConditionFragment extends BeamDataFragment<CarConditionPresenter
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (rootView != null) {
-            ((ViewGroup) rootView.getParent()).removeView(rootView);
-        }
     }
 }

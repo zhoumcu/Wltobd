@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.jude.beam.bijection.BeamFragment;
 import com.jude.beam.bijection.RequiresPresenter;
 import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.app.APP;
+import com.xiaoan.obd.obdproject.module.base.ZhouBaseFragment;
 import com.xiaoan.obd.obdproject.module.main.HomeActivity;
 
 import butterknife.BindView;
@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
  * email：1032324589@qq.com
  */
 @RequiresPresenter(HomeFragmentPresenter.class)
-public class HomeFragment extends BeamFragment<HomeFragmentPresenter> {
+public class HomeFragment extends ZhouBaseFragment<HomeFragmentPresenter> {
 
     @BindView(R.id.img_open)
     TextView imgOpen;
@@ -72,7 +72,18 @@ public class HomeFragment extends BeamFragment<HomeFragmentPresenter> {
         ButterKnife.bind(this, rootView);
         return rootView;
     }
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        EventBus.getDefault().register(this);
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        EventBus.getDefault().unregister(this);
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent event) {/* Do something */};
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

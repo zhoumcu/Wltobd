@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.jude.beam.bijection.Presenter;
 import com.jude.utils.JUtils;
+import com.xiaoan.obd.obdproject.app.APP;
 import com.xiaoan.obd.obdproject.module.tire.TireHomeActivity;
 import com.xiaoan.obd.obdproject.module.trouble.ConditionActivity;
 import com.xiaoan.obd.obdproject.module.trouble.TroubleCodeSearchActivity;
@@ -42,7 +43,11 @@ public class HomeFragmentPresenter extends Presenter<HomeFragment> {
     }
 
     public void openTire(){
-        this.getView().startActivity(new Intent(this.getView().getActivity(), TireHomeActivity.class));
+        if(APP.getInstances().mBluetoothLeService.isConnected){
+            this.getView().startActivity(new Intent(this.getView().getActivity(), TireHomeActivity.class));
+        }else{
+            getView().showDialog();
+        }
     }
 
     public void searchCode() {

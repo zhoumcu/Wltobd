@@ -59,8 +59,5 @@ public class TpmsFragment extends BeamFragment<TpmsFragmentPresenter> {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (rootView != null) {
-            ((ViewGroup) rootView.getParent()).removeView(rootView);
-        }
     }
 }

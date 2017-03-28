@@ -145,6 +145,7 @@ public class BluetoothLeService extends Service {
                 } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
                     intentAction = ACTION_GATT_DISCONNECTED;
                     listClose(gatt);
+                    isConnected = false;
                     Logger.i(TAG, "Disconnected from GATT server.");
                     broadcastUpdate(intentAction, gatt);
                 }
@@ -283,7 +284,7 @@ public class BluetoothLeService extends Service {
         }).start();
     }
 
-    private void scanLeDevice(boolean enable) {
+    public void scanLeDevice(boolean enable) {
         if (enable) {
             Logger.i(TAG,"start scan ble!");
             mScanning = true;

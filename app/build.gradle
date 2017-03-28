@@ -63,4 +63,6 @@ dependencies {
 
     compile 'com.czp.arcProgressBar:ArcProgressBar:1.0.1'
     compile 'net.steamcrafted:load-toast:1.0.6'
+
+    compile 'org.greenrobot:eventbus:3.0.0'
 }

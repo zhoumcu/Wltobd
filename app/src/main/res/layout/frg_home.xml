@@ -30,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_note"
+            android:textColor="@color/white"
             android:background="@drawable/back_selector"
             android:drawableLeft="@mipmap/ico_ann"
             android:layout_alignParentBottom="true"
