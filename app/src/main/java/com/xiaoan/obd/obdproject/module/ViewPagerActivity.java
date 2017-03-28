@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.module.login.LoginActivity;
+import com.xiaoan.obd.obdproject.module.main.HomeActivity;
 import com.xiaoan.obd.obdproject.untils.Constants;
 import com.xiaoan.obd.obdproject.untils.SharedPreferences;
 
@@ -43,7 +44,7 @@ public class ViewPagerActivity extends Activity implements OnClickListener, OnPa
         super.onCreate(savedInstanceState);
         if(SharedPreferences.getInstance().getBoolean(Constants.IS_FIRST,false)) {
             Intent intent = new Intent();
-            intent.setClass(ViewPagerActivity.this,LoginActivity.class);
+            intent.setClass(ViewPagerActivity.this,HomeActivity.class);
             startActivity(intent);
             finish();
         }
