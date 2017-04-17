@@ -121,16 +121,24 @@ public class TpmsFragmentPresenter extends Presenter<TpmsFragment>{
 
         }
     }
+
+    private String LA;
+    private String LB;
+    private String RA;
+    private String RB;
+
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
             Logger.e(TAG,"前端接收数据："+intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
-//            ObdData.execute(intent.getStringExtra(BluetoothLeService.EXTRA_DATA));
             Logger.e(TAG,"处理数据："+ObdData.RT.toString());
-//            setData(ObdData.RT);
             Message msg = new Message();
             msg.what=0x123;
             msg.obj = ObdData.RT;
+            LA = ObdData.LA;
+            LB = ObdData.LB;
+            RA = ObdData.RA;
+            RB = ObdData.RB;
             handler.sendMessage(msg);
         }
     };
@@ -141,6 +149,21 @@ public class TpmsFragmentPresenter extends Presenter<TpmsFragment>{
         getView().tvRightFrom.setPressText( String.format("%.1f",RT.getFrtirePsi()/14.51),default1);
         getView().tvLeftBack.setPressText( String.format("%.1f",RT.getBltirePsi()/14.51),default1);
         getView().tvRightBack.setPressText( String.format("%.1f",RT.getBrtirePsi()/14.51),default1);
-//        getView().tvLeftFrom.setPressText(String.valueOf(RT.getFltirePsi()),default1);
+        if(LA.contains(ObdData.tireH)){
+            getView().tvLeftFrom.setNoteText(LA,R.color.white,R.color.red);
+        }else  if(LA.contains(ObdData.tireL)){
+            getView().tvLeftFrom.setNoteText(LA,R.color.white,R.color.red);
+        }else  if(LA.contains(ObdData.tempH)){
+            getView().tvLeftFrom.setNoteText(LA,R.color.white,R.color.red);
+        }
+        if(LB.contains(ObdData.tireH)){
+            getView().tvLeftBack.setNoteText(RA,R.color.white,R.color.red);
+        }
+        if(RA.contains(ObdData.tireH)){
+            getView().tvRightFrom.setNoteText(RA,R.color.white,R.color.red);
+        }
+        if(RB.contains(ObdData.tireH)){
+            getView().tvRightBack.setNoteText(RB,R.color.white,R.color.red);
+        }
     }
 }

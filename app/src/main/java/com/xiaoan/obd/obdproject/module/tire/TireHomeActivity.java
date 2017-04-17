@@ -1,13 +1,17 @@
 package com.xiaoan.obd.obdproject.module.tire;
 
 import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.format.DateFormat;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.jude.beam.bijection.RequiresPresenter;
 import com.lhh.apst.library.AdvancedPagerSlidingTabStrip;
@@ -38,32 +42,22 @@ public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implem
     private RadioButton btnTpms;
     private RadioButton btnConditions;
     private RadioButton btnNavigation;
-//    @BindView(R.id.tabs)
-//    AdvancedPagerSlidingTabStrip tabs;
-//    @BindView(R.id.btn_travel)
-//    RadioButton btnTravel;
-//    @BindView(R.id.btn_tpms)
-//    RadioButton btnTpms;
-//    @BindView(R.id.btn_conditions)
-//    RadioButton btnConditions;
-//    @BindView(R.id.btn_auto)
-//    RadioButton btnAuto;
-//    @BindView(R.id.btn_navigation)
-//    RadioButton btnNavigation;
-//    @BindView(R.id.btn_voice)
-//    RadioButton btnVoice;
-//    @BindView(R.id.btn_power)
-//    RadioButton btnPower;
-//    @BindView(R.id.viewPager)
-//    CustomViewPager viewPager;
+    private TextView tvCurrentTime;
+    private int currentPosition;
+    private long startTime;
+    private TextView tvLinkTime;
+
 
     @Override
     public int onCreateView() {
+        currentPosition = getIntent().getIntExtra("currentPosition",0);
         return R.layout.activity_main_test_2;
     }
 
     @Override
     public void onDelayCreate(ViewStub viewStub) {
+        startTime = System.currentTimeMillis();
+        new TimeThread().start();
         viewStub.inflate();
         initUI(viewStub);
     }
@@ -78,6 +72,8 @@ public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implem
         btnTpms = (RadioButton) findViewById(R.id.btn_tpms);
         btnConditions = (RadioButton) findViewById(R.id.btn_conditions);
         btnNavigation = (RadioButton) findViewById(R.id.btn_navigation);
+        tvCurrentTime = (TextView) findViewById(R.id.tv_currentTime);
+        tvLinkTime = (TextView) findViewById(R.id.tv_linkTime);
 
         viewPager.setOnPageChangeListener(this);
         viewPager.setOffscreenPageLimit(2);
@@ -85,6 +81,7 @@ public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implem
         tabs.setViewPager(viewPager);
 //        viewPager.setPageTransformer(true, new DepthPageTransformer());
         Logger.e("time", "耗时："+String.valueOf(System.currentTimeMillis()-current));
+        changeFragment(currentPosition);
         btnTravel.setChecked(true);
         btnVoice.setTag(1);
         btnPower.setTag(1);
@@ -264,4 +261,39 @@ public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implem
             }
         }
     }
+    class TimeThread extends Thread {
+        @Override
+        public void run() {
+            do {
+                try {
+                    Thread.sleep(1000);
+                    Message msg = new Message();
+                    msg.what = 1;  //消息(一个整型值)
+                    mHandler.sendMessage(msg);// 每隔1秒发送一个msg给mHandler
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } while (true);
+        }
+    }
+
+    //在主线程里面处理消息并更新UI界面
+    private Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 1:
+                    long sysTime = System.currentTimeMillis();
+                    long durtureTime = sysTime-startTime;
+                    CharSequence sysTimeStr = DateFormat.format("hh:mm:ss", sysTime);
+                    CharSequence dutTimeStr = DateFormat.format("hh:mm:ss", durtureTime);
+                    tvCurrentTime.setText(sysTimeStr); //更新时间
+                    tvLinkTime.setText(dutTimeStr);
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
 }

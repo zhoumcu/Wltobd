@@ -22,6 +22,7 @@ import rx.Subscriber;
  * email：1032324589@qq.com
  */
 public class ItineraryFragmentPresenter extends BeamListFragmentPresenter<ItineraryFragment,ObdTT>{
+
     @Override
     protected void onCreate(@NonNull ItineraryFragment view, Bundle savedState) {
         super.onCreate(view, savedState);
@@ -60,4 +61,5 @@ public class ItineraryFragmentPresenter extends BeamListFragmentPresenter<Itiner
         super.onRefresh();
         initData();
     }
+
 }

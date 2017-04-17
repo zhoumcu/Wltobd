@@ -47,7 +47,7 @@ public class TireHomePresenter extends Presenter<TireHomeActivity>{
     @Override
     protected void onCreate(@NonNull TireHomeActivity view, Bundle savedState) {
         super.onCreate(view, savedState);
-//        saveTestObdTTData();
+        saveTestObdTTData();
 //        mBluetoothLeService = APP.getInstances().getService();
 
     }

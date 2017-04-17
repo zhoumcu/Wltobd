@@ -9,7 +9,7 @@
     android:layout_height="48dp">
 
     <TextView
-        android:text="标题"
+        android:text="3月17日 周一"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         app:srcCompat="?android:attr/homeAsUpIndicator"
         android:id="@+id/back"
+        android:visibility="gone"
         android:layout_alignTop="@+id/title"
         android:layout_centerVertical="true"
         />

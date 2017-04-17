@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     >
-
     <com.lhh.apst.library.AdvancedPagerSlidingTabStrip
         android:id="@+id/tabs"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:fillViewport="false"
         style="@style/pagertab_icon_style" />
+
+    <include layout="@layout/head_tire_frg"
+        android:id="@+id/include" />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="80dp"
@@ -76,7 +80,6 @@
         android:id="@+id/viewPager"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/tabs"
         android:layout_alignParentBottom="true"
-        />
-</RelativeLayout>
+        android:layout_below="@+id/include" />
+</LinearLayout>

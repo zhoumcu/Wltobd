@@ -11,9 +11,13 @@ import android.widget.TextView;
 
 import com.jude.beam.bijection.RequiresPresenter;
 import com.xiaoan.obd.obdproject.R;
-import com.xiaoan.obd.obdproject.app.APP;
 import com.xiaoan.obd.obdproject.module.base.ZhouBaseFragment;
+import com.xiaoan.obd.obdproject.module.event.MessageEvent;
 import com.xiaoan.obd.obdproject.module.main.HomeActivity;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -83,7 +87,15 @@ public class HomeFragment extends ZhouBaseFragment<HomeFragmentPresenter> {
         EventBus.getDefault().unregister(this);
     }
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onMessageEvent(MessageEvent event) {/* Do something */};
+    public void onMessageEvent(MessageEvent event) {
+        /* Do something */
+        if(event.getIsConnected()){
+            tvNote.append("--已连接--");
+            hideProgress();
+        }else{
+            tvNote.append("--断开连接--");
+        }
+    };
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
@@ -98,8 +110,6 @@ public class HomeFragment extends ZhouBaseFragment<HomeFragmentPresenter> {
         tvActivity.setOnClickListener(view1 -> getPresenter().goAActivity());
         tvTestble.setOnClickListener(view1 -> getPresenter().goNotifyActivity());
         tvFaultNote.setOnClickListener(view1 -> getPresenter().searchCode());
-        if(APP.getInstances().mBluetoothLeService.isConnected)
-            tvNote.append("--已连接--");
     }
     @Override
     public void onDestroyView() {

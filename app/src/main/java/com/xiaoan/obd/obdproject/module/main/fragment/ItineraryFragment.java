@@ -3,11 +3,11 @@ package com.xiaoan.obd.obdproject.module.main.fragment;
 import android.view.ViewGroup;
 
 import com.jude.beam.bijection.RequiresPresenter;
-import com.jude.beam.expansion.list.BeamListFragment;
 import com.jude.beam.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.entity.ObdTT;
+import com.xiaoan.obd.obdproject.module.base.ZhouListFragment;
 import com.xiaoan.obd.obdproject.module.main.vholder.ItineraryViewHolder;
 
 /**
@@ -16,7 +16,8 @@ import com.xiaoan.obd.obdproject.module.main.vholder.ItineraryViewHolder;
  * email：1032324589@qq.com
  */
 @RequiresPresenter(ItineraryFragmentPresenter.class)
-public class ItineraryFragment extends BeamListFragment<ItineraryFragmentPresenter,ObdTT>{
+public class ItineraryFragment extends ZhouListFragment<ItineraryFragmentPresenter,ObdTT> {
+
 
     @Override
     public BaseViewHolder<ObdTT> getViewHolder(ViewGroup parent, int viewType) {

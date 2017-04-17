@@ -34,8 +34,11 @@ import android.os.IBinder;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.xiaoan.obd.obdproject.module.event.MessageEvent;
 import com.xiaoan.obd.obdproject.untils.Logger;
 import com.xiaoan.obd.obdproject.untils.Utils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -142,10 +145,13 @@ public class BluetoothLeService extends Service {
                     intentAction = ACTION_GATT_CONNECTED;
                     broadcastUpdate(intentAction,gatt);
                     Logger.i(TAG, "Connected to GATT server.");
-                } else if (newState == BluetoothProfile.STATE_DISCONNECTED) {
+                } else if (newState == BluetoothProfile.STATE_DISCONNECTED&&isConnected) {
                     intentAction = ACTION_GATT_DISCONNECTED;
                     listClose(gatt);
                     isConnected = false;
+                    MessageEvent event = new MessageEvent();
+                    event.setIsConnected(isConnected);
+                    EventBus.getDefault().post(event);
                     Logger.i(TAG, "Disconnected from GATT server.");
                     broadcastUpdate(intentAction, gatt);
                 }
@@ -159,6 +165,9 @@ public class BluetoothLeService extends Service {
 //                findService(gatt);
                 displayGattServices(gatt.getServices());
                 isConnected = true;
+                MessageEvent event = new MessageEvent();
+                event.setIsConnected(isConnected);
+                EventBus.getDefault().post(event);
             } else {
                 if(gatt.getDevice().getUuids() == null)
                     Logger.e(TAG, "onServicesDiscovered received: " + status);
@@ -548,9 +557,9 @@ public class BluetoothLeService extends Service {
                     try {
                         bluetoothGatt.disconnect();
                         Thread.sleep(250);
-                        //bluetoothGatt.close();
-                        connectionQueue.remove(bluetoothGatt);
-                        connectDevice.clear();
+                        bluetoothGatt.close();
+                        //connectionQueue.remove(bluetoothGatt);
+                        //connectDevice.clear();
 
                     } catch (InterruptedException e) {
                         e.printStackTrace();

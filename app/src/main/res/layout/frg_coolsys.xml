@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/grayd">
+    <TextView
+        android:text="冷却系统"
+        android:layout_margin="@dimen/dp12"
+        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_margin="@dimen/dp12"
+        android:orientation="vertical"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:padding="@dimen/dp12"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="正常范围"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="14.4~21.5%"
+                android:id="@+id/tv_present"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            style="@style/dividev"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"/>
+        <LinearLayout
+            android:padding="@dimen/dp12"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="长期检测值"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="53.2%"
+                android:id="@+id/tv_checklong"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            style="@style/dividev"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"/>
+        <LinearLayout
+            android:padding="@dimen/dp12"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="长期检测结果"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="节气门开度过高"
+                android:id="@+id/tv_result"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            style="@style/dividev"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"/>
+        <LinearLayout
+            android:padding="@dimen/dp12"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="本次检测值"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="58.0%"
+                android:id="@+id/tv_thisresult"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            style="@style/dividev"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"/>
+        <LinearLayout
+            android:padding="@dimen/dp12"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="本次检测结果"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="节气门开度过高"
+                android:id="@+id/tv_thischeckresult"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            style="@style/dividev"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"/>
+        <TextView
+            android:text="背景知识
+            汽车水温过高，容易导致部件变形，破坏各零件间正常间隔，使零件间不能保持正常的油膜，可能会导致发动机损坏甚至报废。
+            当遇到水温过高报警时，应首先减速，然后把车开到路旁，不要急于关闭发动机，应暂时保持怠速运转，设法降温，过后应尽快到专门维修地点镜像检修。"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>

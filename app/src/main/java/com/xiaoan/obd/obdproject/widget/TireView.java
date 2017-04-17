@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -219,6 +220,7 @@ public class TireView extends LinearLayout{
         tvNote.setText("异常");
         tvNote.setTextSize(mTempSize);
         tvNote.setTextColor(mTempColor);
+        tvNote.setVisibility(GONE);
         lptemp.addView(tvNote,vlp);
         return lptemp;
     }
@@ -282,10 +284,14 @@ public class TireView extends LinearLayout{
 //        this.invalidate();
     }
     public void setNoteText(String st,int textColor,int backColor){
-        tvNote.setText(st);
-        tvNote.setTextColor(textColor);
-        lptemp.setBackgroundColor(backColor);
-//        this.invalidate();
+        if(!TextUtils.isEmpty(st)){
+            tvNote.setVisibility(VISIBLE);
+            tvNote.setText(st);
+            tvNote.setTextColor(textColor);
+            lptemp.setBackgroundColor(backColor);
+        }else {
+            tvNote.setVisibility(GONE);
+        }
     }
     public void setBackColor(int backColor){
         this.setBackgroundColor(backColor);

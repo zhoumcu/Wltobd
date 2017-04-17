@@ -434,7 +434,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-        <com.github.mikephil.charting.charts.LineChart
+        <com.idtk.smallchart.chart.LineChart
             android:id="@+id/spread_pie_chart1"
             android:layout_width="match_parent"
             android:layout_height="200dip" />
@@ -443,7 +443,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
              />
-        <com.github.mikephil.charting.charts.LineChart
+        <com.idtk.smallchart.chart.LineChart
             android:id="@+id/spread_pie_chart2"
             android:layout_width="match_parent"
             android:layout_height="200dip" />
@@ -452,7 +452,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-        <com.github.mikephil.charting.charts.LineChart
+        <com.idtk.smallchart.chart.LineChart
             android:id="@+id/spread_pie_chart3"
             android:layout_width="match_parent"
             android:layout_height="200dip" />
@@ -461,7 +461,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-        <com.github.mikephil.charting.charts.LineChart
+        <com.idtk.smallchart.chart.CombineChart
             android:id="@+id/spread_pie_chart4"
             android:layout_width="match_parent"
             android:layout_height="200dip" />

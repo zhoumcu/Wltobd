@@ -30,28 +30,28 @@
         android:text="故障码紧急级别的说明"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        android:layout_marginBottom="10dp"
+        android:textSize="16sp"
+        android:layout_marginBottom="8dp"
         />
 
     <TextView
         android:text="危险：需要即刻停车处理，继续行驶可能导致车辆部件受损。"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="8dp"
          />
 
     <TextView
         android:text="严重：车辆可以缓慢行驶，但应今早去维修厂处理。"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp" />
+        android:layout_marginBottom="8dp" />
 
     <TextView
         android:text="警告：暂不处理不会影响驾驶，建议向专业人员咨询。"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"/>
+        android:layout_marginBottom="8dp"/>
 </LinearLayout>

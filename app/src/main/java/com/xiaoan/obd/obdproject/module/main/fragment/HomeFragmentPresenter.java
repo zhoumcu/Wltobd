@@ -43,7 +43,7 @@ public class HomeFragmentPresenter extends Presenter<HomeFragment> {
     }
 
     public void openTire(){
-        if(APP.getInstances().mBluetoothLeService.isConnected){
+        if(!APP.getInstances().mBluetoothLeService.isConnected){
             this.getView().startActivity(new Intent(this.getView().getActivity(), TireHomeActivity.class));
         }else{
             getView().showDialog();
@@ -65,7 +65,13 @@ public class HomeFragmentPresenter extends Presenter<HomeFragment> {
     }
 
     public void goMonitorTire() {
-        this.getView().startActivity(new Intent(this.getView().getActivity(), TroubleCodeSearchActivity.class));
+        if(!APP.getInstances().mBluetoothLeService.isConnected){
+            Intent intent = new Intent(this.getView().getActivity(), TireHomeActivity.class);
+            intent.putExtra("currentPosition",1);
+            this.getView().startActivity(intent);
+        }else{
+            getView().showDialog();
+        }
     }
     public void goItinerary(){
         this.getView().startActivity(new Intent(this.getView().getActivity(), ConditionActivity.class));

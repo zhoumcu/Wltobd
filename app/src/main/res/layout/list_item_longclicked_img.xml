@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:text="查看图片"
+        android:text="配对轮胎"
         android:textColor="@color/white"
         android:textSize="16sp" />
 
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:text="保存图片"
+        android:text="对调轮胎"
         android:textColor="@color/white"
         android:textSize="16sp" />
 

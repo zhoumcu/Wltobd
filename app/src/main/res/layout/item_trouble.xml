@@ -25,6 +25,6 @@
         android:text="内容："/>
     <View
         style="@style/dividev"
-        android:layout_height="5dp"
+        android:layout_height="1dp"
         android:layout_margin="0dp"/>
 </LinearLayout>

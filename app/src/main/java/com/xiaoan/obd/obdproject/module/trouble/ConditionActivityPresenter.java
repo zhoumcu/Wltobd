@@ -8,4 +8,5 @@ import com.jude.beam.bijection.Presenter;
  * email：1032324589@qq.com
  */
 public class ConditionActivityPresenter extends Presenter{
+
 }

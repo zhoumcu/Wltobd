@@ -5,8 +5,6 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.jude.beam.bijection.BeamFragment;
 import com.jude.beam.bijection.RequiresPresenter;
@@ -31,16 +29,7 @@ public class TpmsFragment extends BeamFragment<TpmsFragmentPresenter> {
     TireView tvLeftBack;
     @BindView(R.id.tv_rightBack)
     TireView tvRightBack;
-    @BindView(R.id.btnRight)
-    TextView btnRight;
-    @BindView(R.id.img_sound)
-    ImageView imgSound;
-    @BindView(R.id.img_power)
-    ImageView imgPower;
-    @BindView(R.id.tv_linkTime)
-    TextView tvLinkTime;
-    @BindView(R.id.tv_currentTime)
-    TextView tvCurrentTime;
+
     private View rootView;
 
     @Nullable

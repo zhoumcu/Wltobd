@@ -36,6 +36,7 @@ public class TroubleCodeSearchActivity extends BeamListActivity<TroubleCodeSearc
     public BaseViewHolder getViewHolder(ViewGroup parent, int viewType) {
         return new TroubleVhold(parent);
     }
+
     @Override
     public ListConfig getConfig() {
         return super.getConfig()
@@ -45,6 +46,7 @@ public class TroubleCodeSearchActivity extends BeamListActivity<TroubleCodeSearc
                 .setErrorAble(true)
                 .setErrorTouchToResumeAble(true);
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle presses on the action bar items

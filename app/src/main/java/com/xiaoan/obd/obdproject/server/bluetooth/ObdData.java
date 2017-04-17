@@ -55,6 +55,9 @@ public class ObdData {
     public static String content;
     private static StringBuffer temData = new StringBuffer();
     private static int time;
+    public final static String tireH= "胎压过高";
+    public final static String tireL= "胎压过低";
+    public final static String tempH= "温度过高";
 
     //完整內容
     //$OBD-RT,2016080600001,88,01,50,06,0000000000,11.9,8292,92.54,0.00,195,237,3,2.09,2.14,28.54,23.05,1,0,20257,0,6,1000,00.0,00,1000,00.0,00,1000,00.0,00,1000,00.0,00,,baiduLocation-
@@ -285,7 +288,7 @@ public class ObdData {
     public static String LA = "";
     public static String RA = "";
 
-    private static StringBuilder msg = new StringBuilder();
+    public static StringBuilder msg = new StringBuilder();
 
     private static void doTire(){
 
@@ -325,9 +328,9 @@ public class ObdData {
      */
     private static void doPsi(double psi) {
         if(psi >= H_PSI)
-            msg.append("胎压过高");
+            msg.append(tireH);
         else if (psi < L_PSI)
-            msg.append("胎压过低");
+            msg.append(tireL);
         else
             msg.append("");
     }
@@ -361,7 +364,7 @@ public class ObdData {
      */
     private static void doTem(double tem) {
         if(tem >= H_TEM)
-            msg.append("温度过高");
+            msg.append(tempH);
         else
             msg.append("");
     }
