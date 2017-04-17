@@ -7,13 +7,15 @@ import org.greenrobot.greendao.annotation.Unique;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
+
 /**
  * author：Administrator on 2016/12/12 10:47
  * company: xxxx
  * email：1032324589@qq.com
  */
 @Entity
-public class CarBean{
+public class CarBean implements Serializable{
     @Id(autoincrement = true)
     @Unique
     private Long id;

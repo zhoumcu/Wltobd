@@ -83,9 +83,6 @@ public class CarListPresenter extends BeamListActivityPresenter<CarListActivity,
         Observable.create(new Observable.OnSubscribe<List<CarBean>>() {
             @Override
             public void call(Subscriber<? super List<CarBean>> subscriber) {
-//                CarBean car = new CarBean();
-//                car.setCname("本田");
-//                list.add(car);
                 subscriber.onNext(APP.getInstances().getDaoSession().getCarBeanDao().loadAll());
                 subscriber.onCompleted();
             }

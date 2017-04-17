@@ -70,7 +70,7 @@ public class CarListViewHolder extends BaseViewHolder<CarBean> {
             tvCurrentStatic.setText("");
         }
         tvObdBox.setOnClickListener(view -> setObdBox());
-        tvInfo.setOnClickListener(view -> goCarInfo(data.getCarTypeId()));
+        tvInfo.setOnClickListener(view -> goCarInfo(data));
         tvDefault.setOnClickListener(view -> setDefault(data, data.getCarTypeId()));
         tvDelete.setOnClickListener(view -> sendDelete(data));
         tvChange.setOnClickListener(view -> goChange(data));
@@ -95,9 +95,9 @@ public class CarListViewHolder extends BaseViewHolder<CarBean> {
         getContext().startActivity(intent);
     }
 
-    private void goCarInfo(long carTypeId) {
+    private void goCarInfo(CarBean carData) {
         Intent intent = new Intent(getContext(), CarAllInfoActivity.class);
-        intent.putExtra("id", carTypeId);
+        intent.putExtra("id", carData);
         intent.putExtra(Constants.TYRE, Constants.INFO_DETAIL);
         getContext().startActivity(intent);
     }

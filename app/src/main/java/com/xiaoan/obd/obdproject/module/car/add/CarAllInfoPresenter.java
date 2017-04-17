@@ -17,7 +17,6 @@ import com.xiaoan.obd.obdproject.server.SchedulerTransform;
 import com.xiaoan.obd.obdproject.server.ServiceAPI;
 import com.xiaoan.obd.obdproject.untils.AppManager;
 import com.xiaoan.obd.obdproject.untils.Constants;
-import com.xiaoan.obd.obdproject.untils.Logger;
 import com.xiaoan.obd.obdproject.untils.SharedPreferences;
 
 import net.steamcrafted.loadtoast.LoadToast;
@@ -39,7 +38,6 @@ public class CarAllInfoPresenter extends BeamDataActivityPresenter<CarAllInfoAct
     private static final int REQUESTCODE2 = 1004;
     private static final int REQUESTCODE3 = 1005;
     private static final int REQUESTCODE4 = 1006;
-    private long id;
     private boolean type;
     @Inject
     ServiceAPI serviceAPI;
@@ -50,19 +48,18 @@ public class CarAllInfoPresenter extends BeamDataActivityPresenter<CarAllInfoAct
     protected void onCreate(@NonNull CarAllInfoActivity view, Bundle savedState) {
         super.onCreate(view, savedState);
         DaggerServiceModelComponent.builder().build().inject(this);
-        id = getView().getIntent().getExtras().getLong("id");
+        carBean = (CarBean) getView().getIntent().getSerializableExtra("id");
         type = getView().getIntent().getExtras().getBoolean(Constants.TYRE);
         lt = new LoadToast(view);
         lt.setTranslationY(850);    // y offset in pixels
         initData(type);
-        Logger.e("id"+id);
     }
     private void initData(boolean type){
         if(!type){
             Observable.create(new Observable.OnSubscribe<CarBean>() {
                 @Override
                 public void call(Subscriber<? super CarBean> subscriber) {
-                    subscriber.onNext(APP.getInstances().dbHelper.getCarInfo(id));
+                    subscriber.onNext(carBean);
                     subscriber.onCompleted();
                 }
             }).compose(new SchedulerTransform<>()).unsafeSubscribe(getDataSubscriber());
@@ -70,7 +67,7 @@ public class CarAllInfoPresenter extends BeamDataActivityPresenter<CarAllInfoAct
             Observable.create(new Observable.OnSubscribe<CarBean>() {
                 @Override
                 public void call(Subscriber<? super CarBean> subscriber) {
-                    subscriber.onNext(APP.getInstances().getDaoSession().getCarBeanDao().loadByRowId(id));
+                    subscriber.onNext(carBean);
                     subscriber.onCompleted();
                 }
             }).compose(new SchedulerTransform<>()).unsafeSubscribe(getDataSubscriber());
@@ -138,9 +135,7 @@ public class CarAllInfoPresenter extends BeamDataActivityPresenter<CarAllInfoAct
         boolean type1 = type;
         lt.setText("正在保存...");
         lt.show();
-        carBean =getView().carBean;
         User user = SharedPreferences.getInstance().getUserInfo();
-        carBean.setCarTypeId(id);
         if(!type1){
             carBean.setUserCode(user.getUserCode());
             carBean.setUserCarID(user.getUserCode()+ System.currentTimeMillis());

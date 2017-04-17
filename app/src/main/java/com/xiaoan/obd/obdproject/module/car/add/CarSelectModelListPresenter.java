@@ -35,7 +35,7 @@ public class CarSelectModelListPresenter extends BeamListActivityPresenter<CarSe
             @Override
             public void onItemClick(int position) {
                 Intent intent = new Intent(getView(),CarAllInfoActivity.class);
-                intent.putExtra("id",  ((CarBean)getAdapter().getItem(position)).getId());
+                intent.putExtra("id",  ((CarBean)getAdapter().getItem(position)));
                 startActivity(intent);
                 //finish();
             }
