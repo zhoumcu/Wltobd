@@ -26,4 +26,8 @@
     <color name="gray6">#666666</color>
     <color name="graye">#eeeeee</color>
     <color name="grayd">#d6d6d6</color>
+    <color name="photopicker_background">#5c5c5c</color>
+    <color name="yellow">#cc921e</color>
+
+    <color name="purple01">#9933CC</color>
 </resources>

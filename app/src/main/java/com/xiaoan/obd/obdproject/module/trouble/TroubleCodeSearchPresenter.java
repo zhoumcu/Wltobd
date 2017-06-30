@@ -17,7 +17,7 @@ import com.xiaoan.obd.obdproject.app.APP;
 import com.xiaoan.obd.obdproject.entity.FaultCodeBean;
 import com.xiaoan.obd.obdproject.server.SchedulerTransform;
 import com.xiaoan.obd.obdproject.server.bluetooth.BluetoothLeService;
-import com.xiaoan.obd.obdproject.untils.Constants;
+import com.xiaoan.obd.obdproject.utils.Constants;
 
 import java.util.List;
 
@@ -89,7 +89,7 @@ public class TroubleCodeSearchPresenter extends BeamListActivityPresenter<Troubl
          */
         searchCode.onActionViewExpanded();
         // 设置search view的背景色
-        searchCode.setBackgroundColor(0x22ff00ff);
+        searchCode.setBackgroundColor(getView().getResources().getColor(R.color.graye));
         /**
          * 默认情况下, search widget是"iconified“的，只是用一个图标 来表示它(一个放大镜),
          * 当用户按下它的时候才显示search box . 你可以调用setIconifiedByDefault(false)让search

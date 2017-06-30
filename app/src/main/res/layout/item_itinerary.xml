@@ -7,6 +7,7 @@
     android:background="@color/white"
     android:paddingLeft="@dimen/sp15"
     android:paddingRight="@dimen/sp15"
+    android:layout_marginBottom="1dp"
     android:layout_height="wrap_content">
 
     <View
@@ -35,7 +36,7 @@
                 android:padding="@dimen/dp4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView7" />
+                android:id="@+id/tv_averageFuel" />
 
             <LinearLayout
                 android:padding="@dimen/dp4"
@@ -47,14 +48,14 @@
                     android:text="145Km"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView10"
+                    android:id="@+id/tv_travelMileage"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="25.5L"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView11"
+                    android:id="@+id/tv_drivingFuel"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -68,14 +69,14 @@
                     android:text="94.91Km/h"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView8"
+                    android:id="@+id/tv_maxSpeed"
                     android:layout_weight="1" />
 
                 <TextView
                     android:text="91.67分钟"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/textView9"
+                    android:id="@+id/tv_travelTime"
                     android:layout_weight="1" />
             </LinearLayout>
 
@@ -84,7 +85,7 @@
                 android:text="153.00元"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView12" />
+                android:id="@+id/tv_cost" />
         </LinearLayout>
     <TextView
         android:text="12-8 9:55"

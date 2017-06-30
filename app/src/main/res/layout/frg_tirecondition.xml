@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <include layout="@layout/head_tire_frg"/>
+    <include layout="@layout/head_tire_frg"
+        android:visibility="gone"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -45,6 +46,7 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_weight="1"
+        android:background="@color/black"
         android:layout_height="100dp">
 
         <RelativeLayout
@@ -59,6 +61,8 @@
                 android:minWidth="100dp"
                 android:gravity="center"
                 android:id="@+id/none1"
+                android:textColor="@color/white"
+                android:paddingBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@mipmap/ico_5"
@@ -68,7 +72,7 @@
             <TextView
                 style="@style/gridStyle1"
                 android:text="有故障码"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,6 +93,8 @@
                 android:gravity="center"
                 android:minWidth="100dp"
                 android:id="@+id/none2"
+                android:paddingBottom="5dp"
+                android:textColor="@color/white"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -97,7 +103,6 @@
             <TextView
                 style="@style/gridStyle1"
                 android:text="5"
-                android:textColor="@color/black"
                 android:gravity="center"
                 android:layout_below="@+id/none2"
                 android:layout_width="wrap_content"
@@ -118,6 +123,8 @@
                 android:minWidth="100dp"
                 android:gravity="center"
                 android:id="@+id/none3"
+                android:textColor="@color/white"
+                android:paddingBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -126,7 +133,6 @@
             <TextView
                 android:text="80℃"
                 style="@style/gridStyle1"
-                android:textColor="@color/black"
                 android:gravity="center"
                 android:layout_below="@+id/none3"
                 android:layout_centerHorizontal="true"
@@ -138,6 +144,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:background="@color/black"
         android:orientation="horizontal"
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -149,10 +156,12 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:text="   蓄电池电压    "
-                android:gravity="center"
+                android:text="蓄电池电压    "
                 android:id="@+id/none4"
+                android:gravity="center"
                 android:minWidth="100dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -161,7 +170,6 @@
             <TextView
                 android:text="8.36v"
                 style="@style/gridStyle1"
-                android:textColor="@color/black"
                 android:gravity="center"
                 android:layout_below="@+id/none4"
                 android:layout_centerHorizontal="true"
@@ -181,6 +189,8 @@
                 android:minWidth="100dp"
                 android:gravity="center"
                 android:id="@+id/none5"
+                android:textColor="@color/white"
+                android:paddingBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -189,7 +199,6 @@
             <TextView
                 android:text="18.0%"
                 style="@style/gridStyle1"
-                android:textColor="@color/black"
                 android:gravity="center"
                 android:layout_below="@+id/none5"
                 android:layout_centerHorizontal="true"
@@ -209,6 +218,8 @@
                 android:gravity="center"
                 android:id="@+id/none6"
                 android:minWidth="100dp"
+                android:textColor="@color/white"
+                android:paddingBottom="5dp"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -217,7 +228,6 @@
             <TextView
                 android:text="28.8%"
                 style="@style/gridStyle1"
-                android:textColor="@color/black"
                 android:gravity="center"
                 android:layout_below="@+id/none6"
                 android:layout_alignParentBottom="true"
@@ -229,6 +239,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:background="@color/black"
         android:orientation="horizontal"
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -244,6 +255,8 @@
                 android:gravity="center"
                 android:id="@+id/none7"
                 android:minWidth="100dp"
+                android:textColor="@color/white"
+                android:paddingBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -252,7 +265,7 @@
             <TextView
                 android:text="-20℃"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:layout_below="@+id/none7"
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
@@ -271,6 +284,8 @@
                 android:minWidth="100dp"
                 android:gravity="center"
                 android:id="@+id/none8"
+                android:textColor="@color/white"
+                android:paddingBottom="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
@@ -278,7 +293,7 @@
 
             <TextView
                 android:text="0v"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:gravity="center"
                 android:layout_below="@+id/none8"
                 android:layout_centerHorizontal="true"

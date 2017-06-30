@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <include layout="@layout/head_tire_frg"
         android:visibility="gone"/>
@@ -27,8 +28,8 @@
             android:text="18"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:textSize="45sp"
+            android:layout_marginBottom="25dp"
+            android:textSize="50sp"
             android:textColor="@color/red"
             android:layout_gravity="center|bottom"
             android:id="@+id/tv_speed" />
@@ -36,6 +37,7 @@
 
     <LinearLayout
         android:layout_weight="1"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -51,6 +53,8 @@
                 android:text="里程"
                 android:layout_marginTop="35dp"
                 android:gravity="center"
+                android:paddingBottom="5dp"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@mipmap/ico_1"/>
@@ -60,6 +64,7 @@
                 android:minWidth="@dimen/sp80"
                 android:textSize="25sp"
                 android:gravity="center"
+                android:textColor="@color/white"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,6 +84,8 @@
 
             <TextView
                 android:text="平均速度"
+                android:paddingBottom="5dp"
+                android:textColor="@color/white"
                 android:layout_marginTop="35dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -91,6 +98,7 @@
                 android:textSize="25sp"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_speedTra" />
@@ -101,6 +109,7 @@
 
     <LinearLayout
         android:layout_weight="1"
+        android:background="@color/colorPrimary"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -116,6 +125,8 @@
                 android:text="油耗"
                 android:layout_marginTop="35dp"
                 android:gravity="center"
+                android:paddingBottom="5dp"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@mipmap/ico_3"/>
@@ -126,6 +137,7 @@
                 android:textSize="25sp"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_oilWeak"
@@ -147,6 +159,8 @@
                 android:text="花费"
                 android:layout_marginTop="35dp"
                 android:gravity="center"
+                android:paddingBottom="5dp"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableTop="@mipmap/ico_4"/>
@@ -157,6 +171,7 @@
                 android:textSize="25sp"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textColor="@color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/tv_space" />

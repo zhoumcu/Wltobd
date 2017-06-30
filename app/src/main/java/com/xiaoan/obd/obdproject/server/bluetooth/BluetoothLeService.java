@@ -35,8 +35,8 @@ import android.text.TextUtils;
 import android.util.Log;
 
 import com.xiaoan.obd.obdproject.module.event.MessageEvent;
-import com.xiaoan.obd.obdproject.untils.Logger;
-import com.xiaoan.obd.obdproject.untils.Utils;
+import com.xiaoan.obd.obdproject.utils.Logger;
+import com.xiaoan.obd.obdproject.utils.Utils;
 
 import org.greenrobot.eventbus.EventBus;
 

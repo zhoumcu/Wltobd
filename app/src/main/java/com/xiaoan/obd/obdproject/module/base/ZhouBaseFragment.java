@@ -21,15 +21,31 @@ public abstract class ZhouBaseFragment<T extends Presenter> extends BeamFragment
 
     private ProgressDialog mProgressDialog;
 
+    public void showConfigDialog(){
+        new AlertDialog.Builder(getContext(),AlertDialog.THEME_HOLO_LIGHT)
+                .setTitle("系统提示")//设置对话框标题
+                .setMessage("首次使用请添加车辆？")//设置显示的内容
+                .setPositiveButton("确定",new DialogInterface.OnClickListener() {//添加确定按钮
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {//确定按钮的响应事件
+                        // TODO Auto-generated method stub
+                        onConfig();
+                    }
+                }).show();//在按键响应事件中显示此对话框
+    }
+
+    protected abstract void onConfig();
+
     public void showDialog(){
-        new AlertDialog.Builder(getContext()).setTitle("系统提示")//设置对话框标题
+        new AlertDialog.Builder(getContext(),AlertDialog.THEME_HOLO_LIGHT)
+                .setTitle("系统提示")//设置对话框标题
                 .setMessage("OBD未连接，是否重新扫描！")//设置显示的内容
                 .setPositiveButton("确定",new DialogInterface.OnClickListener() {//添加确定按钮
                     @Override
                     public void onClick(DialogInterface dialog, int which) {//确定按钮的响应事件
                         // TODO Auto-generated method stub
                         APP.getInstances().mBluetoothLeService.scanLeDevice(true);
-                        showProgress(false,"OBD搜索连接中...");
+                        showProgress(true,"OBD搜索连接中...");
                     }
                 }).setNegativeButton("取消",new DialogInterface.OnClickListener() {//添加返回按钮
             @Override

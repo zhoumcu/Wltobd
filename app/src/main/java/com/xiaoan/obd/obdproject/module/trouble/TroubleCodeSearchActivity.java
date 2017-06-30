@@ -11,6 +11,7 @@ import com.jude.beam.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.entity.FaultCodeBean;
+import com.xiaoan.obd.obdproject.utils.AppManager;
 
 /**
  * author：Administrator on 2016/12/8 11:36
@@ -25,6 +26,7 @@ public class TroubleCodeSearchActivity extends BeamListActivity<TroubleCodeSearc
         super.onCreate(savedInstanceState);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
+        AppManager.closeKeyboard(this);
     }
 
     @Override
@@ -44,6 +46,7 @@ public class TroubleCodeSearchActivity extends BeamListActivity<TroubleCodeSearc
                 .setRefreshAble(false)
                 .setNoMoreAble(false)
                 .setErrorAble(true)
+                .setStartWithProgress(false)
                 .setErrorTouchToResumeAble(true);
     }
 

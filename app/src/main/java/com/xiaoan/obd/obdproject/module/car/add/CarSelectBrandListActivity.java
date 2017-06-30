@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.BeamBaseActivity;
 import com.xiaoan.obd.obdproject.R;
-import com.xiaoan.obd.obdproject.untils.AppManager;
+import com.xiaoan.obd.obdproject.utils.AppManager;
 import com.xiaoan.obd.obdproject.widget.pinyin.ClearEditText;
 import com.xiaoan.obd.obdproject.widget.pinyin.SideBar;
 

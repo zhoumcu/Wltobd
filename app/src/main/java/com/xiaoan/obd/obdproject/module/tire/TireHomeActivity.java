@@ -8,22 +8,27 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.format.DateFormat;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewStub;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jude.beam.bijection.RequiresPresenter;
 import com.lhh.apst.library.AdvancedPagerSlidingTabStrip;
 import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.module.base.ZhouBaseActivity;
+import com.xiaoan.obd.obdproject.module.event.MessageEvent;
 import com.xiaoan.obd.obdproject.module.tire.fragment.CarConditionFragment;
 import com.xiaoan.obd.obdproject.module.tire.fragment.TpmsFragment;
 import com.xiaoan.obd.obdproject.module.tire.fragment.TravelDistanceFragment;
-import com.xiaoan.obd.obdproject.untils.Logger;
+import com.xiaoan.obd.obdproject.utils.Logger;
+import com.xiaoan.obd.obdproject.utils.NumberUtil;
 import com.xiaoan.obd.obdproject.widget.CustomViewPager;
 
-import butterknife.OnClick;
+import org.greenrobot.eventbus.EventBus;
 
 /**
  * author：Administrator on 2016/12/8 11:36
@@ -31,7 +36,7 @@ import butterknife.OnClick;
  * email：1032324589@qq.com
  */
 @RequiresPresenter(TireHomePresenter.class)
-public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implements ViewPager.OnPageChangeListener {
+public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implements View.OnClickListener,ViewPager.OnPageChangeListener {
     private final static String TAG = TireHomeActivity.class.getSimpleName();
     private CustomViewPager viewPager;
     private AdvancedPagerSlidingTabStrip tabs;
@@ -44,8 +49,11 @@ public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implem
     private RadioButton btnNavigation;
     private TextView tvCurrentTime;
     private int currentPosition;
-    private long startTime;
+    protected long startTime;
+    protected long endTime;
     private TextView tvLinkTime;
+    private ImageView imgSound;
+    private ImageView imgPower;
 
 
     @Override
@@ -61,6 +69,16 @@ public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implem
         viewStub.inflate();
         initUI(viewStub);
     }
+
+    @Override
+    protected void onFinish() {
+        endTime = System.currentTimeMillis();
+        getPresenter().saveTestObdTTData();
+        MessageEvent event = new MessageEvent();
+        event.setStop(true);
+        EventBus.getDefault().post(event);
+    }
+
     private void initUI(ViewStub viewStub) {
         long current  = System.currentTimeMillis();
         viewPager = (CustomViewPager) findViewById(R.id.viewPager);
@@ -74,6 +92,8 @@ public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implem
         btnNavigation = (RadioButton) findViewById(R.id.btn_navigation);
         tvCurrentTime = (TextView) findViewById(R.id.tv_currentTime);
         tvLinkTime = (TextView) findViewById(R.id.tv_linkTime);
+        imgSound = (ImageView) findViewById(R.id.img_sound);
+        imgPower = (ImageView) findViewById(R.id.img_power);
 
         viewPager.setOnPageChangeListener(this);
         viewPager.setOffscreenPageLimit(2);
@@ -85,9 +105,19 @@ public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implem
         btnTravel.setChecked(true);
         btnVoice.setTag(1);
         btnPower.setTag(1);
-    }
+        imgSound.setTag(1);
 
-    @OnClick({R.id.btn_travel, R.id.btn_tpms, R.id.btn_conditions, R.id.btn_auto, R.id.btn_navigation, R.id.btn_voice, R.id.btn_power})
+        btnPower.setOnClickListener(this);
+        btnVoice.setOnClickListener(this);
+        btnTpms.setOnClickListener(this);
+        btnTravel.setOnClickListener(this);
+        btnConditions.setOnClickListener(this);
+        btnNavigation.setOnClickListener(this);
+        imgPower.setOnClickListener(this);
+        imgSound.setOnClickListener(this);
+        btnAuto.setOnClickListener(this);
+    }
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_travel:
@@ -109,28 +139,37 @@ public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implem
                 if(btnVoice.getTag().equals(1)){
                     btnVoice.setChecked(true);
                     btnVoice.setTag(2);
+                    Toast.makeText(this,"静音模式开启！",Toast.LENGTH_SHORT).show();
                 }else {
                     btnVoice.setChecked(false);
                     btnVoice.setTag(1);
+                    Toast.makeText(this,"静音模式关闭！",Toast.LENGTH_SHORT).show();
                 }
                 break;
             case R.id.btn_power:
-                if(btnPower.getTag().equals(1)){
-                    btnPower.setChecked(true);
-                    btnPower.setTag(2);
+                showNormalDialog();
+                break;
+            case R.id.img_sound:
+                if(imgSound.getTag().equals(1)){
+                    imgSound.setTag(2);
+                    Toast.makeText(this,"静音模式开启！",Toast.LENGTH_SHORT).show();
                 }else {
-                    btnPower.setChecked(false);
-                    btnPower.setTag(1);
+                    imgSound.setTag(1);
+                    Toast.makeText(this,"静音模式关闭！",Toast.LENGTH_SHORT).show();
                 }
+                break;
+            case R.id.img_power:
+                showNormalDialog();
                 break;
         }
     }
+
     private void changeFragment(int i){
         viewPager.setCurrentItem(i);
     }
 
     private class myPagerAdapter extends FragmentStatePagerAdapter {
-        String[] title = {"行程", "胎压监测", /*"车况", "智能仪表", "导航"*/};
+        String[] title = {"行程", "胎压监测", "车况"/*, "智能仪表", "导航"*/};
         TravelDistanceFragment mTravelDistanceFragment;
         TpmsFragment mTpmsFragment;
         CarConditionFragment mCarConditionFragment;
@@ -287,13 +326,22 @@ public class TireHomeActivity extends ZhouBaseActivity<TireHomePresenter> implem
                     long sysTime = System.currentTimeMillis();
                     long durtureTime = sysTime-startTime;
                     CharSequence sysTimeStr = DateFormat.format("hh:mm:ss", sysTime);
-                    CharSequence dutTimeStr = DateFormat.format("hh:mm:ss", durtureTime);
                     tvCurrentTime.setText(sysTimeStr); //更新时间
-                    tvLinkTime.setText(dutTimeStr);
+                    tvLinkTime.setText(NumberUtil.getTimeExpend(startTime,sysTime));
                     break;
                 default:
                     break;
             }
         }
     };
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            showNormalDialog();
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+    
 }

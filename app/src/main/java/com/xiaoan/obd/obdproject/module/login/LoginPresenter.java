@@ -14,8 +14,8 @@ import com.xiaoan.obd.obdproject.module.main.HomeActivity;
 import com.xiaoan.obd.obdproject.server.DaggerServiceModelComponent;
 import com.xiaoan.obd.obdproject.server.SchedulerTransform;
 import com.xiaoan.obd.obdproject.server.ServiceAPI;
-import com.xiaoan.obd.obdproject.untils.Constants;
-import com.xiaoan.obd.obdproject.untils.SharedPreferences;
+import com.xiaoan.obd.obdproject.utils.Constants;
+import com.xiaoan.obd.obdproject.utils.SharedPreferences;
 
 import net.steamcrafted.loadtoast.LoadToast;
 
@@ -43,7 +43,7 @@ public class LoginPresenter extends Presenter<LoginActivity>{
         super.onCreate(view, savedState);
         DaggerServiceModelComponent.builder().build().inject(this);
         lt = new LoadToast(view);
-        lt.setTranslationY(850);    // y offset in pixels
+        lt.setTranslationY(950);    // y offset in pixels
     }
 
     public void login() {
@@ -126,16 +126,28 @@ public class LoginPresenter extends Presenter<LoginActivity>{
         }
         @Override
         public void onError(Throwable e) {
-            JUtils.Toast("同步更新失败！"+e.getMessage());
-            lt.error();
+            if(e.getMessage().contains("首次登录")){
+                lt.success();
+                SharedPreferences.getInstance().putBoolean(Constants.IS_FIRST,true);
+                getView().startActivity(new Intent(getView(), HomeActivity.class));
+                getView().finish();
+            }else {
+                JUtils.Toast("同步更新失败！"+e.getMessage());
+                lt.error();
+            }
         }
         @Override
         public void onNext(List<CarBean> carBean) {
             lt.success();
-            for (CarBean c: carBean) {
-                APP.getInstances().getDaoSession().insert(c);
-                c.setId(null);
-            }
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    for (CarBean c: carBean) {
+                        APP.getInstances().getDaoSession().insert(c);
+                        c.setId(null);
+                    }
+                }
+            }).start();
             SharedPreferences.getInstance().putBoolean(Constants.IS_FIRST,true);
             getView().startActivity(new Intent(getView(), HomeActivity.class));
             getView().finish();

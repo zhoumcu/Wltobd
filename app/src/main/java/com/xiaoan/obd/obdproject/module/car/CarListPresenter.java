@@ -15,8 +15,8 @@ import com.xiaoan.obd.obdproject.module.car.add.CarSelectBrandListActivity;
 import com.xiaoan.obd.obdproject.server.DaggerServiceModelComponent;
 import com.xiaoan.obd.obdproject.server.SchedulerTransform;
 import com.xiaoan.obd.obdproject.server.ServiceAPI;
-import com.xiaoan.obd.obdproject.untils.Constants;
-import com.xiaoan.obd.obdproject.untils.SharedPreferences;
+import com.xiaoan.obd.obdproject.utils.Constants;
+import com.xiaoan.obd.obdproject.utils.SharedPreferences;
 
 import net.steamcrafted.loadtoast.LoadToast;
 
@@ -38,6 +38,7 @@ public class CarListPresenter extends BeamListActivityPresenter<CarListActivity,
     @Inject
     ServiceAPI serviceAPI;
 
+    private CarBean carBeam;
     private BroadcastReceiver broadcastReceviver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -46,6 +47,7 @@ public class CarListPresenter extends BeamListActivityPresenter<CarListActivity,
             }else if(intent.getAction().equals(Constants.DELETE_LIST)){
                 lt.setText("正在删除...");
                 lt.show();
+                carBeam = (CarBean)intent.getSerializableExtra(Constants.CAR_OBJECT);
                 serviceAPI.deleteCarInfo(SharedPreferences.getInstance().getString(Constants.TOKEN,""),intent.getStringExtra(Constants.ID))
                         .compose(new SchedulerTransform<>()).unsafeSubscribe(getDeleteSubscribe);
             }
@@ -108,7 +110,7 @@ public class CarListPresenter extends BeamListActivityPresenter<CarListActivity,
         @Override
         public void onNext(ComResult result) {
             JUtils.Toast("上传成功！");
-            getView().carListHodlder.setDelete();
+            getView().carListHodlder.setDelete(carBeam);
             lt.success();
         }
     };

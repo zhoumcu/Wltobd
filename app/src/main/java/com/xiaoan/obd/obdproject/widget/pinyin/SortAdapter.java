@@ -10,7 +10,7 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 
 import com.xiaoan.obd.obdproject.R;
-import com.xiaoan.obd.obdproject.untils.BitmapUtils;
+import com.xiaoan.obd.obdproject.utils.BitmapUtils;
 
 import java.util.List;
 

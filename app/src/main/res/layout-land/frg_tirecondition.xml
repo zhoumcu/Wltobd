@@ -434,7 +434,7 @@
                     android:layout_height="match_parent">
                     <TextView
                         style="@style/showTextLandLevel"
-                        android:text="直行"
+                        android:text="100"
                         android:id="@+id/tv_orientation"
                         />
                     <TextView

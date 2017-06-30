@@ -26,7 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".module.TestView"/>
-        <activity android:name=".module.obd.ObdPairedActivity"/>
+        <activity android:name=".module.obd.ObdPairedActivity"
+            android:label="参数配置"/>
         <activity android:name=".module.login.LoginActivity"
             android:theme="@style/Notitle"/>
 
@@ -43,7 +44,9 @@
             />
         <activity android:name=".module.tire.TireHomeActivity"
             android:label="胎压监测"
-            android:theme="@style/Notitle"
+            android:screenOrientation="sensor"
+            android:configChanges="keyboardHidden|screenSize"
+            android:theme="@style/TireStyle"
             />
         <activity android:name=".module.trouble.TroubleCodeSearchActivity"
             android:label="故障码查询"/>
@@ -81,6 +84,14 @@
         <service android:name=".server.UploadDataServer"
             android:process=":background"/>
         <activity android:name=".MainActivity"/>
+        <activity android:name=".module.mine.CodeActivity"/>
+        <activity
+            android:name="com.foamtrace.photopicker.PhotoPickerActivity"
+            android:theme="@style/PhotoPickerTheme"
+            android:configChanges="orientation|screenSize"/>
+
+        <activity android:name="com.foamtrace.photopicker.PhotoPreviewActivity"
+            android:theme="@style/PhotoPickerTheme"/>
     </application>
 
 </manifest>

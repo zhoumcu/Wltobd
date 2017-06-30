@@ -8,6 +8,27 @@ package com.xiaoan.obd.obdproject.module.event;
 public class MessageEvent {
 
     private boolean isConnected;
+    private String currentID;
+
+    public boolean isDataChange() {
+        return isDataChange;
+    }
+
+    public void setDataChange(boolean dataChange) {
+        isDataChange = dataChange;
+    }
+
+    private boolean isDataChange;
+
+    public boolean isStop() {
+        return isStop;
+    }
+
+    public void setStop(boolean stop) {
+        isStop = stop;
+    }
+
+    private boolean isStop;
 
     public MessageEvent() {
 
@@ -19,5 +40,13 @@ public class MessageEvent {
 
     public boolean getIsConnected() {
         return this.isConnected;
+    }
+
+    public void setCurrentID(String currentID) {
+        this.currentID = currentID;
+    }
+
+    public String getCurrentID() {
+        return currentID;
     }
 }

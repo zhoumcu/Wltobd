@@ -10,7 +10,7 @@ import com.jude.beam.expansion.list.BeamListActivity;
 import com.jude.beam.expansion.list.ListConfig;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.xiaoan.obd.obdproject.entity.CarBean;
-import com.xiaoan.obd.obdproject.untils.AppManager;
+import com.xiaoan.obd.obdproject.utils.AppManager;
 
 /**
  * author：Administrator on 2016/12/12 11:05

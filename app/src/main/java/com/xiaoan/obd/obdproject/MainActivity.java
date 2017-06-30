@@ -44,4 +44,9 @@ public class MainActivity extends ZhouBaseActivity {
     public void onDelayCreate(ViewStub viewStub) {
         viewStub.inflate();
     }
+
+    @Override
+    protected void onFinish() {
+
+    }
 }

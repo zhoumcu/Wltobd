@@ -15,4 +15,11 @@
         <attr name="note_color" format="color"/>
         <attr name="tire_orientation" format="integer"/>
     </declare-styleable>
+
+    <declare-styleable name="MultiScrollNumber">
+        <attr name="primary_number" format="integer"/>
+        <attr name="target_number" format="integer"/>
+        <attr name="number_size" format="integer"/>
+        <!--<attr name="number_color" format="color"/>-->
+    </declare-styleable>
 </resources>

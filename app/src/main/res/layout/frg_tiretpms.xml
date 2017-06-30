@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <FrameLayout
+        android:background="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -30,6 +31,8 @@
                     <com.xiaoan.obd.obdproject.widget.TireView
                         android:id="@+id/tv_leftFrom"
                         android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_weight="1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </LinearLayout>
@@ -47,6 +50,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
+                        android:padding="10dp"
+                        android:layout_weight="1"
                         android:id="@+id/tv_rightFrom" />
                 </LinearLayout>
 
@@ -70,6 +75,7 @@
                     <com.xiaoan.obd.obdproject.widget.TireView
                         android:id="@+id/tv_leftBack"
                         android:gravity="center"
+                        android:padding="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </LinearLayout>
@@ -85,6 +91,7 @@
                     <com.xiaoan.obd.obdproject.widget.TireView
                         android:id="@+id/tv_rightBack"
                         android:gravity="center"
+                        android:padding="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
                 </LinearLayout>
@@ -94,6 +101,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:alpha="0.2"
             android:background="@mipmap/all_car"/>
 
     </FrameLayout>

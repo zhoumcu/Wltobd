@@ -11,8 +11,8 @@ import com.xiaoan.obd.obdproject.server.DaggerServiceModelComponent;
 import com.xiaoan.obd.obdproject.server.SchedulerTransform;
 import com.xiaoan.obd.obdproject.server.ServiceAPI;
 import com.xiaoan.obd.obdproject.server.bluetooth.BluetoothLeService;
-import com.xiaoan.obd.obdproject.untils.Constants;
-import com.xiaoan.obd.obdproject.untils.SharedPreferences;
+import com.xiaoan.obd.obdproject.utils.Constants;
+import com.xiaoan.obd.obdproject.utils.SharedPreferences;
 
 import net.steamcrafted.loadtoast.LoadToast;
 

@@ -13,16 +13,19 @@
 
             <TextView
                 android:text="行程数据 燃油型号："
+                android:padding="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView15"
-                android:layout_weight="1" />
+                android:textColor="@color/black"
+                android:id="@+id/textView15" />
 
             <TextView
+                android:padding="10dp"
                 android:text="93#（京92#）油价：6元"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textView16"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_weight="1" />
 
         </LinearLayout>
@@ -242,6 +245,8 @@
         <View style="@style/dividev"/>
         <TextView
             android:text="车辆性能数据"
+            android:padding="10dp"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textView23" />
@@ -430,38 +435,51 @@
         <View style="@style/dividev"/>
 
         <TextView
+            android:padding="10dp"
             android:text="左前轮胎"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-        <com.idtk.smallchart.chart.LineChart
+        <!--<com.idtk.smallchart.chart.LineChart-->
+        <TextView
             android:id="@+id/spread_pie_chart1"
             android:layout_width="match_parent"
             android:layout_height="200dip" />
         <TextView
+            android:padding="10dp"
             android:text="右前轮胎"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
              />
-        <com.idtk.smallchart.chart.LineChart
+        <!--<com.idtk.smallchart.chart.LineChart-->
+        <TextView
+            android:textColor="@color/black"
             android:id="@+id/spread_pie_chart2"
             android:layout_width="match_parent"
             android:layout_height="200dip" />
         <TextView
+            android:padding="10dp"
             android:text="左后轮胎"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-        <com.idtk.smallchart.chart.LineChart
+        <!--<com.idtk.smallchart.chart.LineChart-->
+        <TextView
             android:id="@+id/spread_pie_chart3"
             android:layout_width="match_parent"
             android:layout_height="200dip" />
         <TextView
+            android:padding="10dp"
             android:text="右后轮胎"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
-        <com.idtk.smallchart.chart.CombineChart
+        <!--<com.idtk.smallchart.chart.CombineChart-->
+        <TextView
             android:id="@+id/spread_pie_chart4"
             android:layout_width="match_parent"
             android:layout_height="200dip" />

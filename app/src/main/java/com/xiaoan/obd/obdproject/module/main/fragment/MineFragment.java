@@ -80,7 +80,7 @@ public class MineFragment extends BeamFragment<MineFragmentPresenter> {
         tvBusinessCard.setOnClickListener(view -> getPresenter().goBusinessCardActivity());
         tvObdBox.setOnClickListener(view -> getPresenter().goObdBoxActivity());
         tvObdConfig.setOnClickListener(view -> getPresenter().goObdConfigActivity());
-        tvObdpaired.setOnClickListener(view -> getPresenter().goObdPairedActivity());
+        //tvObdpaired.setOnClickListener(view -> getPresenter().goObdPairedActivity());
     }
 
     @Override

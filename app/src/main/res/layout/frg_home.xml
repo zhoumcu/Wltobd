@@ -9,80 +9,104 @@
     android:layout_height="match_parent"
     android:weightSum="1">
 
-    <RelativeLayout
+    <LinearLayout
         android:background="@color/colorBackDark"
         android:layout_width="match_parent"
-        android:layout_height="180dp">
+        android:layout_height="150dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:id="@+id/rl_default"
+                android:layout_weight="1"
+                android:visibility="visible"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
 
-        <TextView
-            android:text="1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_faultNote"
-            android:textColor="@color/black"
-            android:background="@drawable/note_selector"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/img_icon"
-            android:layout_toEndOf="@+id/img_icon" />
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@mipmap/my_pic1"
+                    android:layout_marginStart="25dp"
+                    android:id="@+id/img_icon"
+                    android:scaleType="fitXY"
+                    android:layout_margin="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentStart="true" />
 
+                <TextView
+                    android:text="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_faultNote"
+                    android:textColor="@color/black"
+                    android:background="@drawable/note_selector"
+                    android:layout_alignBottom="@+id/img_icon"
+                    android:layout_toEndOf="@+id/img_icon" />
+
+                <TextView
+                    android:text="个故障码"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_error"
+                    android:layout_alignBaseline="@+id/tv_faultNote"
+                    android:layout_alignBottom="@+id/tv_faultNote"
+                    android:layout_toEndOf="@+id/tv_faultNote" />
+
+                <TextView
+                    android:text="保时捷 918"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_carname"
+                    android:textSize="18sp"
+                    android:maxWidth="120dp"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textColor="@color/white"
+                    android:layout_alignTop="@+id/img_icon"
+                    android:layout_toEndOf="@+id/img_icon" />
+            </RelativeLayout>
+            <TextView
+                android:visibility="gone"
+                android:layout_weight="1"
+                android:id="@+id/btn_default"
+                android:text="未设置车辆信息，点击设置！"
+                android:textColor="@color/white"
+                android:background="@color/red"
+                android:padding="10dp"
+                android:gravity="center"
+                android:layout_margin="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:text="连接智能盒子"
+                android:id="@+id/img_open"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@mipmap/button_kopie"
+                android:layout_marginRight="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_alignTop="@+id/img_icon"
+                android:layout_alignEnd="@+id/tv_note" />
+        </LinearLayout>
         <TextView
             android:text="连接时如有弹出蓝牙对话框，请点取消！"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/tv_note"
             android:textColor="@color/white"
             android:background="@drawable/back_selector"
             android:drawableLeft="@mipmap/ico_ann"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
             android:layout_margin="5dp"/>
 
-        <TextView
-            android:text="个故障码"
-            android:textColor="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/tv_faultNote"
-            android:layout_toEndOf="@+id/tv_faultNote"
-            android:id="@+id/textView2" />
+    </LinearLayout>
 
-        <TextView
-            android:text="保时捷 918"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_carname"
-            android:layout_alignTop="@+id/img_icon"
-            android:layout_toRightOf="@+id/img_icon"
-            android:layout_toEndOf="@+id/img_icon" />
-
-        <TextView
-            android:text="连接智能盒子"
-            android:id="@+id/img_open"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableTop="@mipmap/button_kopie"
-            android:layout_marginRight="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_alignTop="@+id/tv_carname"
-            android:layout_alignRight="@+id/tv_note"
-            android:layout_alignEnd="@+id/tv_note" />
-
-        <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:srcCompat="@mipmap/my_pic1"
-            android:layout_marginLeft="23dp"
-            android:layout_marginStart="23dp"
-            android:id="@+id/img_icon"
-            android:scaleType="centerCrop"
-            android:layout_alignBottom="@+id/textView2"
-            android:layout_alignLeft="@+id/tv_note"
-            android:layout_alignStart="@+id/tv_note" />
-    </RelativeLayout>
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

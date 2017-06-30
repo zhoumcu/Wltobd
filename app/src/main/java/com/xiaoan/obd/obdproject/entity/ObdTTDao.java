@@ -53,6 +53,9 @@ public class ObdTTDao extends AbstractDao<ObdTT, Long> {
         public final static Property MaxTireTemperature = new Property(28, String.class, "maxTireTemperature", false, "MAX_TIRE_TEMPERATURE");
         public final static Property MinTireTemperature = new Property(29, String.class, "minTireTemperature", false, "MIN_TIRE_TEMPERATURE");
         public final static Property TireState = new Property(30, String.class, "tireState", false, "TIRE_STATE");
+        public final static Property StopTime = new Property(31, long.class, "stopTime", false, "STOP_TIME");
+        public final static Property StartTime = new Property(32, long.class, "startTime", false, "START_TIME");
+        public final static Property CreateAtTime = new Property(33, String.class, "createAtTime", false, "CREATE_AT_TIME");
     };
 
 
@@ -98,7 +101,10 @@ public class ObdTTDao extends AbstractDao<ObdTT, Long> {
                 "\"MIN_TIRE_PRESSURE\" TEXT," + // 27: minTirePressure
                 "\"MAX_TIRE_TEMPERATURE\" TEXT," + // 28: maxTireTemperature
                 "\"MIN_TIRE_TEMPERATURE\" TEXT," + // 29: minTireTemperature
-                "\"TIRE_STATE\" TEXT);"); // 30: tireState
+                "\"TIRE_STATE\" TEXT," + // 30: tireState
+                "\"STOP_TIME\" INTEGER NOT NULL ," + // 31: stopTime
+                "\"START_TIME\" INTEGER NOT NULL ," + // 32: startTime
+                "\"CREATE_AT_TIME\" TEXT);"); // 33: createAtTime
     }
 
     /** Drops the underlying database table. */
@@ -173,6 +179,13 @@ public class ObdTTDao extends AbstractDao<ObdTT, Long> {
         if (tireState != null) {
             stmt.bindString(31, tireState);
         }
+        stmt.bindLong(32, entity.getStopTime());
+        stmt.bindLong(33, entity.getStartTime());
+ 
+        String createAtTime = entity.getCreateAtTime();
+        if (createAtTime != null) {
+            stmt.bindString(34, createAtTime);
+        }
     }
 
     @Override
@@ -241,6 +254,13 @@ public class ObdTTDao extends AbstractDao<ObdTT, Long> {
         if (tireState != null) {
             stmt.bindString(31, tireState);
         }
+        stmt.bindLong(32, entity.getStopTime());
+        stmt.bindLong(33, entity.getStartTime());
+ 
+        String createAtTime = entity.getCreateAtTime();
+        if (createAtTime != null) {
+            stmt.bindString(34, createAtTime);
+        }
     }
 
     @Override
@@ -281,7 +301,10 @@ public class ObdTTDao extends AbstractDao<ObdTT, Long> {
             cursor.isNull(offset + 27) ? null : cursor.getString(offset + 27), // minTirePressure
             cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28), // maxTireTemperature
             cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29), // minTireTemperature
-            cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30) // tireState
+            cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30), // tireState
+            cursor.getLong(offset + 31), // stopTime
+            cursor.getLong(offset + 32), // startTime
+            cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33) // createAtTime
         );
         return entity;
     }
@@ -319,6 +342,9 @@ public class ObdTTDao extends AbstractDao<ObdTT, Long> {
         entity.setMaxTireTemperature(cursor.isNull(offset + 28) ? null : cursor.getString(offset + 28));
         entity.setMinTireTemperature(cursor.isNull(offset + 29) ? null : cursor.getString(offset + 29));
         entity.setTireState(cursor.isNull(offset + 30) ? null : cursor.getString(offset + 30));
+        entity.setStopTime(cursor.getLong(offset + 31));
+        entity.setStartTime(cursor.getLong(offset + 32));
+        entity.setCreateAtTime(cursor.isNull(offset + 33) ? null : cursor.getString(offset + 33));
      }
     
     @Override

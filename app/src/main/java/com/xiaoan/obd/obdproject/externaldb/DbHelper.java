@@ -13,7 +13,7 @@ import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.entity.CarBean;
 import com.xiaoan.obd.obdproject.entity.FaultCodeBean;
 import com.xiaoan.obd.obdproject.entity.common.RecordData;
-import com.xiaoan.obd.obdproject.untils.Logger;
+import com.xiaoan.obd.obdproject.utils.Logger;
 
 import java.io.File;
 import java.io.FileOutputStream;

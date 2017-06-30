@@ -63,7 +63,7 @@ public class RegisterActivityPresenter extends Presenter<RegisterActivity>{
             }
             edPhone = null;
         }
-        if(!String.valueOf(numcode).equals(getView().edCode.toString())){
+        if(!String.valueOf(numcode).equals(getView().edCode.getText().toString())){
             JUtils.Toast("验证码不对，请重新输入");
             return;
         }

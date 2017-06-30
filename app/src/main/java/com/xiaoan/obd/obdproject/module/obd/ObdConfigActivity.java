@@ -16,8 +16,8 @@ import com.jude.beam.expansion.BeamBaseActivity;
 import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.app.APP;
 import com.xiaoan.obd.obdproject.server.bluetooth.BluetoothLeService;
-import com.xiaoan.obd.obdproject.untils.FileUtils;
-import com.xiaoan.obd.obdproject.untils.Logger;
+import com.xiaoan.obd.obdproject.utils.FileUtils;
+import com.xiaoan.obd.obdproject.utils.Logger;
 
 import java.util.Arrays;
 import java.util.List;

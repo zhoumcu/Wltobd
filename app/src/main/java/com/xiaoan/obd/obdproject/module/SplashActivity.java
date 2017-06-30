@@ -20,5 +20,4 @@ public class SplashActivity extends BeamBaseActivity {
         setContentView(R.layout.aty_splash);
         ButterKnife.bind(this);
     }
-
 }

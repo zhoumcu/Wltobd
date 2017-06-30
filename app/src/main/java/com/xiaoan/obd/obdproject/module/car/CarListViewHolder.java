@@ -11,9 +11,13 @@ import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.app.APP;
 import com.xiaoan.obd.obdproject.entity.CarBean;
 import com.xiaoan.obd.obdproject.module.car.add.CarAllInfoActivity;
+import com.xiaoan.obd.obdproject.module.event.MessageEvent;
 import com.xiaoan.obd.obdproject.module.mine.ObdBoxActivity;
-import com.xiaoan.obd.obdproject.untils.Constants;
-import com.xiaoan.obd.obdproject.untils.SharedPreferences;
+import com.xiaoan.obd.obdproject.utils.BitmapUtils;
+import com.xiaoan.obd.obdproject.utils.Constants;
+import com.xiaoan.obd.obdproject.utils.SharedPreferences;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -46,7 +50,6 @@ public class CarListViewHolder extends BaseViewHolder<CarBean> {
     TextView tvCurrentStatic;
     @BindView(R.id.tv_defaultStatic)
     TextView tvDefaultStatic;
-    private CarBean carData;
 
     public CarListViewHolder(ViewGroup parent) {
         super(parent, R.layout.item_carlist);
@@ -56,13 +59,14 @@ public class CarListViewHolder extends BaseViewHolder<CarBean> {
     @Override
     public void setData(CarBean data) {
         super.setData(data);
-        carData = data;
         tvCarserial.setText(data.getBrandCname());
         tvCarname.setText(data.getCarSeriesName());
         if (data.isDefault()) {
             tvDefaultStatic.setText("默认");
+            tvDelete.setEnabled(false);
         }else {
             tvDefaultStatic.setText("");
+            tvDelete.setEnabled(true);
         }
         if (data.isCurrent()) {
             tvCurrentStatic.setText("当前");
@@ -74,6 +78,7 @@ public class CarListViewHolder extends BaseViewHolder<CarBean> {
         tvDefault.setOnClickListener(view -> setDefault(data, data.getCarTypeId()));
         tvDelete.setOnClickListener(view -> sendDelete(data));
         tvChange.setOnClickListener(view -> goChange(data));
+        imgCar.setImageBitmap(BitmapUtils.getImageFromAssetsFile(getContext(),"logo/"+data.getBrandLogo()+".png"));
     }
 
     private void goChange(CarBean data) {
@@ -87,6 +92,10 @@ public class CarListViewHolder extends BaseViewHolder<CarBean> {
         data.setIsCurrent(true);
         APP.getInstances().getDaoSession().getCarBeanDao().update(data);
         JUtils.Toast("当前切换成功！");
+        MessageEvent event = new MessageEvent();
+        event.setDataChange(true);
+        event.setCurrentID(data.getUserCarID());
+        EventBus.getDefault().post(event);
         broadcast();
     }
 
@@ -114,17 +123,22 @@ public class CarListViewHolder extends BaseViewHolder<CarBean> {
         APP.getInstances().getDaoSession().getCarBeanDao().update(data);
         JUtils.Toast("设置成功！");
         SharedPreferences.getInstance().putString(Constants.USER_CAR_ID,data.getUserCarID());
+        MessageEvent event = new MessageEvent();
+        event.setDataChange(true);
+        event.setCurrentID(data.getUserCarID());
+        EventBus.getDefault().post(event);
         broadcast();
     }
 
     public void sendDelete(CarBean data){
         Intent intent = new Intent(Constants.DELETE_LIST);
         intent.putExtra(Constants.ID,data.getUserCarID());
+        intent.putExtra(Constants.CAR_OBJECT,data);
         getContext().sendBroadcast(intent);
     }
 
-    public void setDelete() {
-        APP.getInstances().getDaoSession().getCarBeanDao().delete(carData);
+    public void setDelete(CarBean data) {
+        APP.getInstances().getDaoSession().getCarBeanDao().delete(data);
         JUtils.Toast("删除成功！");
         broadcast();
     }

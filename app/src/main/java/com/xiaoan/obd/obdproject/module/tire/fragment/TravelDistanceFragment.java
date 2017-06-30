@@ -12,7 +12,7 @@ import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.data.BeamDataFragment;
 import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.entity.ObdRT;
-import com.xiaoan.obd.obdproject.untils.Logger;
+import com.xiaoan.obd.obdproject.utils.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

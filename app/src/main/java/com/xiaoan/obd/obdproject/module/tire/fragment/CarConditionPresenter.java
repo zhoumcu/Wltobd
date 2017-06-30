@@ -3,6 +3,7 @@ package com.xiaoan.obd.obdproject.module.tire.fragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -13,7 +14,7 @@ import com.xiaoan.obd.obdproject.entity.ObdRT;
 import com.xiaoan.obd.obdproject.server.SchedulerTransform;
 import com.xiaoan.obd.obdproject.server.bluetooth.BluetoothLeService;
 import com.xiaoan.obd.obdproject.server.bluetooth.ObdData;
-import com.xiaoan.obd.obdproject.untils.Logger;
+import com.xiaoan.obd.obdproject.utils.Logger;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -29,10 +30,11 @@ public class CarConditionPresenter extends BeamDataFragmentPresenter<CarConditio
     Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             if(msg.what==0x123) {
+                ObdRT RT = (ObdRT)msg.obj;
                 Observable.create(new Observable.OnSubscribe<ObdRT>() {
                     @Override
                     public void call(Subscriber<? super ObdRT> subscriber) {
-                        subscriber.onNext((ObdRT) msg.obj);
+                        subscriber.onNext(RT);
                         subscriber.onCompleted();
                     }
                 }).compose(new SchedulerTransform<>()).unsafeSubscribe(getDataSubscriber());
@@ -43,13 +45,13 @@ public class CarConditionPresenter extends BeamDataFragmentPresenter<CarConditio
     @Override
     protected void onCreate(@NonNull CarConditionFragment view, Bundle savedState) {
         super.onCreate(view, savedState);
-//        getView().getActivity().registerReceiver(broadcastReceiver,new IntentFilter(BluetoothLeService.ACTION_DATA_AVAILABLE));
+        getView().getActivity().registerReceiver(broadcastReceiver,new IntentFilter(BluetoothLeService.ACTION_DATA_AVAILABLE));
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        getView().getActivity().unregisterReceiver(broadcastReceiver);
+        getView().getActivity().unregisterReceiver(broadcastReceiver);
     }
 
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
@@ -62,6 +64,7 @@ public class CarConditionPresenter extends BeamDataFragmentPresenter<CarConditio
             msg.what=0x123;
             msg.obj = ObdData.RT;
             handler.sendMessage(msg);
+//            getView().setData(ObdData.RT);
         }
     };
 //    public void searchCode() {

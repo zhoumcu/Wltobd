@@ -6,15 +6,15 @@ import android.support.annotation.NonNull;
 
 import com.jude.beam.bijection.Presenter;
 import com.xiaoan.obd.obdproject.entity.User;
-import com.xiaoan.obd.obdproject.module.TestView;
 import com.xiaoan.obd.obdproject.module.car.CarListActivity;
+import com.xiaoan.obd.obdproject.module.mine.CodeActivity;
 import com.xiaoan.obd.obdproject.module.mine.ObdBoxActivity;
 import com.xiaoan.obd.obdproject.module.mine.PersonInfoActivity;
 import com.xiaoan.obd.obdproject.module.obd.ObdPairedActivity;
 import com.xiaoan.obd.obdproject.module.trouble.ConditionActivity;
 import com.xiaoan.obd.obdproject.module.trouble.TroubleCodeSearchActivity;
-import com.xiaoan.obd.obdproject.untils.Constants;
-import com.xiaoan.obd.obdproject.untils.SharedPreferences;
+import com.xiaoan.obd.obdproject.utils.Constants;
+import com.xiaoan.obd.obdproject.utils.SharedPreferences;
 
 /**
  * author：Administrator on 2016/12/13 15:10
@@ -59,7 +59,7 @@ public class MineFragmentPresenter extends Presenter<MineFragment> {
     }
 
     public void goScanCodeActivity() {
-        getView().startActivity(new Intent(getView().getActivity(), ConditionActivity.class));
+        getView().startActivity(new Intent(getView().getActivity(), CodeActivity.class));
     }
 
     public void goBusinessCardActivity() {
@@ -73,7 +73,7 @@ public class MineFragmentPresenter extends Presenter<MineFragment> {
     }
 
     public void goObdConfigActivity() {
-        getView().startActivity(new Intent(getView().getActivity(), TestView.class));
+        getView().startActivity(new Intent(getView().getActivity(), ObdPairedActivity.class));
     }
 
     public void goObdPairedActivity() {

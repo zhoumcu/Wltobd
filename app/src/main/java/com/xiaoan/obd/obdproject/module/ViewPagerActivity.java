@@ -18,8 +18,8 @@ import android.widget.TextView;
 import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.module.login.LoginActivity;
 import com.xiaoan.obd.obdproject.module.main.HomeActivity;
-import com.xiaoan.obd.obdproject.untils.Constants;
-import com.xiaoan.obd.obdproject.untils.SharedPreferences;
+import com.xiaoan.obd.obdproject.utils.Constants;
+import com.xiaoan.obd.obdproject.utils.SharedPreferences;
 
 import java.util.ArrayList;
 import java.util.List;

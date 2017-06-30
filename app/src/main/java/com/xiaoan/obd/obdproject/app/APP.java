@@ -14,8 +14,10 @@ import com.jude.utils.JUtils;
 import com.xiaoan.obd.obdproject.entity.DaoMaster;
 import com.xiaoan.obd.obdproject.entity.DaoSession;
 import com.xiaoan.obd.obdproject.externaldb.DbHelper;
+import com.xiaoan.obd.obdproject.module.main.HomeActivity;
 import com.xiaoan.obd.obdproject.server.bluetooth.BluetoothLeService;
-import com.xiaoan.obd.obdproject.untils.Logger;
+import com.xiaoan.obd.obdproject.utils.Logger;
+import com.xiaoan.obd.obdproject.utils.TypefaceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +25,7 @@ import java.util.List;
 /**
  * Created by Mr.Jude on 2015/8/20.
  */
-public class APP extends Application {
+public class APP extends Application implements Thread.UncaughtExceptionHandler{
 
     private static final String TAG = APP.class.getSimpleName();
     private static APP instances;
@@ -35,12 +37,14 @@ public class APP extends Application {
     public void onCreate() {
         super.onCreate();
         instances = this;
+        TypefaceUtil.replaceSystemDefaultFont(this,"fonts/digital2.ttf");
         JUtils.initialize(this);
         JUtils.setDebug(true, "JoyLog");
         Beam.init(this);
         setDatabase();
         dbHelper = DbHelper.getInstance(this);
         bindService();
+//        Thread.setDefaultUncaughtExceptionHandler(this);
     }
     public static APP getInstances(){
         return instances;
@@ -121,5 +125,20 @@ public class APP extends Application {
     private void addActivity(Class<?> c){
         List<Class> list = new ArrayList<>();
         list.add(c);
+    }
+
+    @Override
+    public void uncaughtException(Thread thread, Throwable throwable) {
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("uncaughtException");
+                Intent intent = new Intent(instances, HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                android.os.Process.killProcess(android.os.Process.myPid());
+            }
+        }).start();
     }
 }

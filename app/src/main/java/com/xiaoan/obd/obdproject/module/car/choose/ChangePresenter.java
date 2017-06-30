@@ -6,7 +6,7 @@ import android.text.TextUtils;
 
 import com.jude.beam.bijection.Presenter;
 import com.jude.utils.JUtils;
-import com.xiaoan.obd.obdproject.untils.Constants;
+import com.xiaoan.obd.obdproject.utils.Constants;
 
 /**
  * author：Administrator on 2017/1/13 10:10

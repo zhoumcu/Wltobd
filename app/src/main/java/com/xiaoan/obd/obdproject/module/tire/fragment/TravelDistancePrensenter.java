@@ -14,7 +14,7 @@ import com.xiaoan.obd.obdproject.entity.ObdRT;
 import com.xiaoan.obd.obdproject.server.SchedulerTransform;
 import com.xiaoan.obd.obdproject.server.bluetooth.BluetoothLeService;
 import com.xiaoan.obd.obdproject.server.bluetooth.ObdData;
-import com.xiaoan.obd.obdproject.untils.Logger;
+import com.xiaoan.obd.obdproject.utils.Logger;
 
 import rx.Observable;
 import rx.Subscriber;
@@ -30,11 +30,11 @@ public class TravelDistancePrensenter extends BeamDataFragmentPresenter<TravelDi
     Handler handler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             if(msg.what==0x123) {
-                Observable.create(new Observable.OnSubscribe<ObdRT>() {
+                    ObdRT RT = (ObdRT)msg.obj;
+                    Observable.create(new Observable.OnSubscribe<ObdRT>() {
                     @Override
                     public void call(Subscriber<? super ObdRT> subscriber) {
-                        if(msg.obj instanceof ObdRT)
-                            subscriber.onNext((ObdRT) msg.obj);
+                        subscriber.onNext(RT);
                         subscriber.onCompleted();
                     }
                 }).compose(new SchedulerTransform<>()).unsafeSubscribe(getDataSubscriber());

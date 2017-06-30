@@ -5,7 +5,9 @@ import android.support.annotation.NonNull;
 
 import com.jude.beam.expansion.data.BeamDataActivityPresenter;
 import com.xiaoan.obd.obdproject.entity.User;
-import com.xiaoan.obd.obdproject.untils.SharedPreferences;
+import com.xiaoan.obd.obdproject.module.login.LoginActivity;
+import com.xiaoan.obd.obdproject.utils.AppManager;
+import com.xiaoan.obd.obdproject.utils.SharedPreferences;
 
 /**
  * author：Administrator on 2016/12/9 15:54
@@ -33,7 +35,10 @@ public class PersonInfoPresenter extends BeamDataActivityPresenter<PersonInfoAct
     }
 
     public void quitAccount() {
-
+//        SharedPreferences.getInstance().putBoolean(Constants.IS_FIRST,false);
+        AppManager.getAppManager().finishAllActivity();
+        Intent intent  = new Intent(getView().getBaseContext(), LoginActivity.class);
+        startActivity(intent);
     }
 
     public void changePhone() {

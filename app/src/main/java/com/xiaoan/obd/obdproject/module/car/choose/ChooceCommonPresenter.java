@@ -9,7 +9,7 @@ import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 import com.xiaoan.obd.obdproject.app.APP;
 import com.xiaoan.obd.obdproject.entity.CarBean;
 import com.xiaoan.obd.obdproject.server.SchedulerTransform;
-import com.xiaoan.obd.obdproject.untils.Constants;
+import com.xiaoan.obd.obdproject.utils.Constants;
 
 import java.util.ArrayList;
 import java.util.List;

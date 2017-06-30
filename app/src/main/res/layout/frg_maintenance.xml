@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <LinearLayout
-            android:layout_width="250dp"
+            android:layout_width="wrap_content"
             android:layout_height="80dp"
             android:layout_gravity="center"
             android:layout_marginTop="@dimen/dp12"
@@ -25,62 +25,10 @@
             android:paddingRight="27dp"
             android:background="@mipmap/lc_bg"
             >
-            <com.paradoxie.autoscrolltextview.VerticalTextview
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:text="1" />
-            <com.paradoxie.autoscrolltextview.VerticalTextview
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="1" />
-            <com.paradoxie.autoscrolltextview.VerticalTextview
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="1" />
-            <com.paradoxie.autoscrolltextview.VerticalTextview
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="1" />
-            <com.paradoxie.autoscrolltextview.VerticalTextview
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="1" />
-            <com.paradoxie.autoscrolltextview.VerticalTextview
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="1" />
-            <com.paradoxie.autoscrolltextview.VerticalTextview
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:textStyle="bold"
-                android:text="1" />
+            <com.xiaoan.obd.obdproject.widget.MultiScrollNumber
+                android:id="@+id/scroll_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
         <LinearLayout
             android:orientation="horizontal"
@@ -146,6 +94,7 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

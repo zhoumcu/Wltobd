@@ -19,8 +19,9 @@ import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.entity.ObdRT;
 import com.xiaoan.obd.obdproject.server.bluetooth.BluetoothLeService;
 import com.xiaoan.obd.obdproject.server.bluetooth.ObdData;
-import com.xiaoan.obd.obdproject.untils.DisplayUtil;
-import com.xiaoan.obd.obdproject.untils.Logger;
+import com.xiaoan.obd.obdproject.utils.Constants;
+import com.xiaoan.obd.obdproject.utils.DisplayUtil;
+import com.xiaoan.obd.obdproject.utils.Logger;
 import com.xiaoan.obd.obdproject.widget.ItemLongClickedPopWindow;
 
 /**
@@ -32,14 +33,34 @@ public class TpmsFragmentPresenter extends Presenter<TpmsFragment>{
 
     private static final String TAG = TpmsFragmentPresenter.class.getSimpleName();
     private int downX, downY;
+    private int i = 0;
+    private void broadcastUpdate(String action, String data) {
+        Intent intent = new Intent(action);
+        if(ObdData.execute(data)){
+            intent.putExtra(BluetoothLeService.EXTRA_DATA,new String(data));
+            if(getView()!=null&&getView().getContext()!=null)
+                getView().getContext().sendBroadcast(intent);
+        }
+    }
     Handler handler = new Handler() {
-        public void handleMessage(android.os.Message msg) {
+        public void handleMessage(Message msg) {
             if(msg.what==0x123) {
                 if(msg.obj instanceof ObdRT)
                     setData((ObdRT) msg.obj);
+            } else if(msg.what==0x122) {
+                broadcastUpdate(BluetoothLeService.ACTION_DATA_AVAILABLE,Constants.test[i]);
+                i++;
+                if(i>=Constants.test.length){
+                    i=0;
+                }
+                Message msg1 = new Message();
+                msg1.what = 0x122;
+                if (handler!=null)
+                handler.sendMessageDelayed(msg1,1000);
             }
         };
     };
+
     @Override
     protected void onCreate(@NonNull TpmsFragment view, Bundle savedState) {
         super.onCreate(view, savedState);
@@ -50,19 +71,17 @@ public class TpmsFragmentPresenter extends Presenter<TpmsFragment>{
     protected void onCreateView(@NonNull TpmsFragment view) {
         super.onCreateView(view);
         init(view);
+        handler.sendEmptyMessage(0x122);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         getView().getActivity().unregisterReceiver(broadcastReceiver);
+        handler = null;
     }
 
     private void init(TpmsFragment view) {
-        view.tvLeftFrom.setBackColor(getView().getActivity().getResources().getColor(R.color.white));
-        view.tvLeftFrom.setPressText("1.8",getView().getActivity().getResources().getColor(R.color.white));
-        view.tvLeftBack.setBackColor(getView().getActivity().getResources().getColor(R.color.white));
-        view.tvLeftBack.setPressText("1.8",getView().getActivity().getResources().getColor(R.color.white));
 
         GestureDetector mGestureDetector = new GestureDetector(getView().getActivity(), new GISGestureListener(getView().getContext()));
 
@@ -71,6 +90,7 @@ public class TpmsFragmentPresenter extends Presenter<TpmsFragment>{
                         ItemLongClickedPopWindow.IMAGE_VIEW_POPUPWINDOW,
                         DisplayUtil.dip2px(getView().getActivity(),120),
                         DisplayUtil.dip2px(getView().getActivity(),90));
+
         view.tvLeftBack.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
@@ -122,10 +142,10 @@ public class TpmsFragmentPresenter extends Presenter<TpmsFragment>{
         }
     }
 
-    private String LA;
-    private String LB;
-    private String RA;
-    private String RB;
+    private String RF = "";
+    private String LB = "";
+    private String LF = "";
+    private String RB = "";
 
     BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
         @Override
@@ -135,35 +155,67 @@ public class TpmsFragmentPresenter extends Presenter<TpmsFragment>{
             Message msg = new Message();
             msg.what=0x123;
             msg.obj = ObdData.RT;
-            LA = ObdData.LA;
+            RF = ObdData.RF;
             LB = ObdData.LB;
-            RA = ObdData.RA;
+            LF = ObdData.LF;
             RB = ObdData.RB;
             handler.sendMessage(msg);
         }
     };
     private void setData(ObdRT RT){
-        if(RT == null) return;
+        if(RT == null||getView().getActivity()==null) return;
         int default1 = getView().getActivity().getResources().getColor(R.color.colorPrimaryDark);
-        getView().tvLeftFrom.setPressText( String.format("%.1f",RT.getFltirePsi()/14.51),default1);
-        getView().tvRightFrom.setPressText( String.format("%.1f",RT.getFrtirePsi()/14.51),default1);
-        getView().tvLeftBack.setPressText( String.format("%.1f",RT.getBltirePsi()/14.51),default1);
-        getView().tvRightBack.setPressText( String.format("%.1f",RT.getBrtirePsi()/14.51),default1);
-        if(LA.contains(ObdData.tireH)){
-            getView().tvLeftFrom.setNoteText(LA,R.color.white,R.color.red);
-        }else  if(LA.contains(ObdData.tireL)){
-            getView().tvLeftFrom.setNoteText(LA,R.color.white,R.color.red);
-        }else  if(LA.contains(ObdData.tempH)){
-            getView().tvLeftFrom.setNoteText(LA,R.color.white,R.color.red);
+        String leftFromVal =  String.format("%.1f",RT.getFltirePsi()/14.51);
+        String rightFromVal =  String.format("%.1f",RT.getFrtirePsi()/14.51);
+        String leftBackVal =  String.format("%.1f",RT.getBltirePsi()/14.51);
+        String rightBackVal =  String.format("%.1f",RT.getBrtirePsi()/14.51);
+        String leftFromTempVal =  String.valueOf(RT.getFltireTemp());
+        String rightFromTempVal =  String.valueOf(RT.getFrtireTemp());
+        String leftBackTempVal =  String.valueOf(RT.getBltireTemp());
+        String rightBackTempVal =  String.valueOf(RT.getBrtireTemp());
+        getView().tvLeftFrom.setPressText(leftFromVal,default1);
+        getView().tvRightFrom.setPressText( rightFromVal,default1);
+        getView().tvLeftBack.setPressText( leftBackVal,default1);
+        getView().tvRightBack.setPressText( rightBackVal,default1);
+        getView().tvLeftFrom.setTempText(leftFromTempVal,default1);
+        getView().tvRightFrom.setTempText( rightFromTempVal,default1);
+        getView().tvLeftBack.setTempText( leftBackTempVal,default1);
+        getView().tvRightBack.setTempText( rightBackTempVal,default1);
+        if(LF.contains(ObdData.tireH)){
+            getView().tvLeftFrom.showPressHightView(leftFromVal);
+            getView().tvLeftFrom.setNoteText(LF);
+        }else  if(LF.contains(ObdData.tireL)){
+            getView().tvLeftFrom.showPressLowView(leftFromVal);
+            getView().tvLeftFrom.setNoteText(LF);
+        }else  if(LF.contains(ObdData.tempH)){
+            getView().tvLeftFrom.setNoteText(LF);
         }
         if(LB.contains(ObdData.tireH)){
-            getView().tvLeftBack.setNoteText(RA,R.color.white,R.color.red);
+            getView().tvLeftBack.showPressHightView(rightFromVal);
+            getView().tvLeftBack.setNoteText(LB);
+        }else  if(LB.contains(ObdData.tireL)){
+            getView().tvLeftBack.showPressLowView(rightFromVal);
+            getView().tvLeftBack.setNoteText(LB);
+        }else  if(LB.contains(ObdData.tempH)){
+            getView().tvLeftBack.setNoteText(LB);
         }
-        if(RA.contains(ObdData.tireH)){
-            getView().tvRightFrom.setNoteText(RA,R.color.white,R.color.red);
+        if(RF.contains(ObdData.tireH)){
+            getView().tvRightFrom.showPressHightView(leftBackVal);
+            getView().tvRightFrom.setNoteText(RF);
+        }else  if(RF.contains(ObdData.tireL)){
+            getView().tvRightFrom.showPressLowView(leftBackVal);
+            getView().tvRightFrom.setNoteText(RF);
+        }else  if(RF.contains(ObdData.tempH)){
+            getView().tvRightFrom.setNoteText(RF);
         }
         if(RB.contains(ObdData.tireH)){
-            getView().tvRightBack.setNoteText(RB,R.color.white,R.color.red);
+            getView().tvRightBack.showPressLowView(rightBackVal);
+            getView().tvRightBack.setNoteText(RB);
+        }else  if(RB.contains(ObdData.tireL)){
+            getView().tvRightBack.showPressLowView(rightBackVal);
+            getView().tvRightBack.setNoteText(RB);
+        }else  if(RB.contains(ObdData.tempH)){
+            getView().tvRightBack.setNoteText(RB);
         }
     }
 }

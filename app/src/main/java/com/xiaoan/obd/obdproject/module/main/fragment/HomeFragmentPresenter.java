@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.jude.beam.bijection.Presenter;
 import com.jude.utils.JUtils;
 import com.xiaoan.obd.obdproject.app.APP;
+import com.xiaoan.obd.obdproject.module.car.CarListActivity;
 import com.xiaoan.obd.obdproject.module.tire.TireHomeActivity;
 import com.xiaoan.obd.obdproject.module.trouble.ConditionActivity;
 import com.xiaoan.obd.obdproject.module.trouble.TroubleCodeSearchActivity;
@@ -43,7 +44,7 @@ public class HomeFragmentPresenter extends Presenter<HomeFragment> {
     }
 
     public void openTire(){
-        if(!APP.getInstances().mBluetoothLeService.isConnected){
+        if(APP.getInstances().mBluetoothLeService.isConnected){
             this.getView().startActivity(new Intent(this.getView().getActivity(), TireHomeActivity.class));
         }else{
             getView().showDialog();
@@ -54,14 +55,32 @@ public class HomeFragmentPresenter extends Presenter<HomeFragment> {
         this.getView().startActivity(new Intent(this.getView().getActivity(), TroubleCodeSearchActivity.class));
     }
     public void setAutoMode(){
-
+        if(getView().tvAutoStart.getTag().equals(1)){
+            getView().tvAutoStart.setTag(2);
+            Toast.makeText(getView().getContext(),"智能模式开启！",Toast.LENGTH_SHORT).show();
+        }else {
+            getView().tvAutoStart.setTag(1);
+            Toast.makeText(getView().getContext(),"智能模式关闭！",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void setQuietMode() {
-
+        if(getView().tvQuietMode.getTag().equals(1)){
+            getView().tvQuietMode.setTag(2);
+            Toast.makeText(getView().getContext(),"静音模式开启！",Toast.LENGTH_SHORT).show();
+        }else {
+            getView().tvQuietMode.setTag(1);
+            Toast.makeText(getView().getContext(),"静音模式关闭！",Toast.LENGTH_SHORT).show();
+        }
     }
     public void setBackGroundMode(){
-
+        if(getView().tvBackgroundMode.getTag().equals(1)){
+            getView().tvBackgroundMode.setTag(2);
+            Toast.makeText(getView().getContext(),"后台模式开启！",Toast.LENGTH_SHORT).show();
+        }else {
+            getView().tvBackgroundMode.setTag(1);
+            Toast.makeText(getView().getContext(),"后台模式关闭！",Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void goMonitorTire() {
@@ -119,4 +138,9 @@ public class HomeFragmentPresenter extends Presenter<HomeFragment> {
 
         }
     };
+
+    public void goSetDefaultCar() {
+        Intent intent = new Intent(getView().getContext(), CarListActivity.class);
+        getView().startActivity(intent);
+    }
 }

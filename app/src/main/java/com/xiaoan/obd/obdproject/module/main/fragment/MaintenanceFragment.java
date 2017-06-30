@@ -14,6 +14,7 @@ import com.czp.library.ArcProgress;
 import com.jude.beam.bijection.BeamFragment;
 import com.jude.beam.bijection.RequiresPresenter;
 import com.xiaoan.obd.obdproject.R;
+import com.xiaoan.obd.obdproject.widget.MultiScrollNumber;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,12 +49,14 @@ public class MaintenanceFragment extends BeamFragment<MaintenanceFragmentPresent
     TextView tvCoolSys;
     @BindView(R.id.tv_expert)
     TextView tvExpert;
+    @BindView(R.id.scroll_number)
+    MultiScrollNumber scrollNumber;
     private View rootView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        if(rootView == null)
+        if (rootView == null)
             rootView = inflater.inflate(R.layout.frg_maintenance, container, false);
         ButterKnife.bind(this, rootView);
         return rootView;
@@ -66,7 +69,8 @@ public class MaintenanceFragment extends BeamFragment<MaintenanceFragmentPresent
             @Override
             public void draw(Canvas canvas, RectF rectF, float x, float y, float storkeWidth, int progress) {
                 Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-                textPaint.setStrokeWidth(60);
+                textPaint.setStrokeWidth(190);
+                textPaint.setTextSize(50);
                 textPaint.setColor(getResources().getColor(R.color.textColor));
                 String progressStr = String.valueOf(progress + "%");
                 float textX = x - (textPaint.measureText(progressStr) / 2);
@@ -75,7 +79,9 @@ public class MaintenanceFragment extends BeamFragment<MaintenanceFragmentPresent
             }
         });
         myProgress01.setProgress(50);
+        scrollNumber.setNumber(2015164);
     }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();

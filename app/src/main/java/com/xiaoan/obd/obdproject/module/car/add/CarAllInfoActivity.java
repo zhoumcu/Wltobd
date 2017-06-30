@@ -13,8 +13,9 @@ import com.jude.beam.bijection.RequiresPresenter;
 import com.jude.beam.expansion.data.BeamDataActivity;
 import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.entity.CarBean;
-import com.xiaoan.obd.obdproject.untils.AppManager;
-import com.xiaoan.obd.obdproject.untils.Logger;
+import com.xiaoan.obd.obdproject.utils.AppManager;
+import com.xiaoan.obd.obdproject.utils.BitmapUtils;
+import com.xiaoan.obd.obdproject.utils.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -124,5 +125,6 @@ public class CarAllInfoActivity extends BeamDataActivity<CarAllInfoPresenter, Ca
         tvFueloil.setText(data.getFuelType());
         tvFueloilprice.setText(data.getOilPrice());
         tvOilL.setText(data.getTank());
+        imgLogo.setImageBitmap(BitmapUtils.getImageFromAssetsFile(this,"logo/"+ data.getBrandLogo()+".png"));
     }
 }

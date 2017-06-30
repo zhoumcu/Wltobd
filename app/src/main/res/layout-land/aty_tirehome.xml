@@ -47,11 +47,13 @@
             <RadioButton
                 style="@style/RadiButtonStyle"
                 android:text="智能仪表"
+                android:visibility="gone"
                 android:id="@+id/btn_auto"
                 />
             <RadioButton
                 style="@style/RadiButtonStyle"
                 android:text="导航"
+                android:visibility="gone"
                 android:id="@+id/btn_navigation"
                  />
         </RadioGroup>

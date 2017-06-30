@@ -5,12 +5,14 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Unique;
 import org.greenrobot.greendao.annotation.Generated;
 
+import java.io.Serializable;
+
 /**
  * Created by Administrator on 2017/1/11.
  *
  */
 @Entity
-public class ObdTT {
+public class ObdTT implements Serializable{
     @Id(autoincrement = true)
     @Unique
     private Long id;
@@ -45,8 +47,11 @@ public class ObdTT {
     private String maxTireTemperature;//本次最高轮胎温度
     private String minTireTemperature;//本次最低轮胎温度
     private String tireState;//本次轮胎状态
+    private long stopTime;
+    private long startTime;
+    private String createAtTime;
 
-    @Generated(hash = 113517895)
+    @Generated(hash = 1510010243)
     public ObdTT(Long id, String conten, String obdType, int sncode, int strokeId,
             int dataBytes, int occTime, int hotCarTime, int travelTime,
             int idleSpeedTime, double travelMileage, double idleFuel,
@@ -56,7 +61,8 @@ public class ObdTT {
             int decelerationTimes, int faultCodeNum, int speedingTime,
             int oneMinutesIdleTimes, String maxTirePressure,
             String minTirePressure, String maxTireTemperature,
-            String minTireTemperature, String tireState) {
+            String minTireTemperature, String tireState, long stopTime,
+            long startTime, String createAtTime) {
         this.id = id;
         this.conten = conten;
         this.obdType = obdType;
@@ -88,6 +94,9 @@ public class ObdTT {
         this.maxTireTemperature = maxTireTemperature;
         this.minTireTemperature = minTireTemperature;
         this.tireState = tireState;
+        this.stopTime = stopTime;
+        this.startTime = startTime;
+        this.createAtTime = createAtTime;
     }
 
     @Generated(hash = 1393151004)
@@ -340,5 +349,29 @@ public class ObdTT {
 
     public void setTireState(String tireState) {
         this.tireState = tireState;
+    }
+
+    public void setStartTime(long startTime) {
+        this.startTime = startTime;
+    }
+
+    public void setStopTime(long stopTime) {
+        this.stopTime = stopTime;
+    }
+
+    public long getStartTime() {
+        return startTime;
+    }
+
+    public long getStopTime() {
+        return stopTime;
+    }
+
+    public void setCreateAtTime(String createAtTime) {
+        this.createAtTime = createAtTime;
+    }
+
+    public String getCreateAtTime() {
+        return this.createAtTime;
     }
 }

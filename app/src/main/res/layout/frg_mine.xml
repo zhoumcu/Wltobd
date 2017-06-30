@@ -126,6 +126,7 @@
                     android:text="油耗排行，里程排行，等级排行"
                     android:gravity="center"
                     android:layout_weight="1"
+                    android:textSize="11sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     />
@@ -153,6 +154,7 @@
                     android:text="您需要对您的汽车进行人工检查"
                     android:gravity="center"
                     android:layout_weight="1"
+                    android:textSize="11sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
@@ -187,6 +189,7 @@
                     android:text="油耗排行，里程排行，等级排行"
                     android:gravity="center"
                     android:layout_weight="1"
+                    android:textSize="11sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
@@ -210,9 +213,10 @@
                     android:layout_height="wrap_content"
                     />
                 <TextView
-                    android:text="您需要对您的汽车进行人工检测"
+                    android:text="活动多多，尽请期待"
                     android:gravity="center"
                     android:layout_weight="1"
+                    android:textSize="11sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
@@ -245,6 +249,7 @@
                 <TextView
                     android:text="设置OBD各项参数"
                     android:gravity="center"
+                    android:textSize="11sp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     />
@@ -260,6 +265,7 @@
 
                 <TextView
                     android:text="OBD配对"
+                    android:visibility="gone"
                     android:gravity="center"
                     android:layout_marginTop="@dimen/sp15"
                     android:textColor="@color/black"
@@ -268,6 +274,7 @@
                     android:layout_height="wrap_content"
                     />
                 <TextView
+                    android:visibility="gone"
                     android:text="设置OBD各项参数"
                     android:gravity="center"
                     android:layout_width="match_parent"

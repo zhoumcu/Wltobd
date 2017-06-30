@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import com.jude.beam.bijection.Presenter;
 import com.xiaoan.obd.obdproject.app.APP;
 import com.xiaoan.obd.obdproject.server.bluetooth.ObdData;
+import com.xiaoan.obd.obdproject.utils.NumberUtil;
 
 /**
  * author：Administrator on 2017/1/10 08:54
@@ -47,14 +48,17 @@ public class TireHomePresenter extends Presenter<TireHomeActivity>{
     @Override
     protected void onCreate(@NonNull TireHomeActivity view, Bundle savedState) {
         super.onCreate(view, savedState);
-        saveTestObdTTData();
+//        saveTestObdTTData();
 //        mBluetoothLeService = APP.getInstances().getService();
 
     }
 
-    private void saveTestObdTTData() {
+    public void saveTestObdTTData() {
         ObdData.execute(tt);
         ObdData.TT.setId(null);
+        ObdData.TT.setStartTime(getView().startTime);
+        ObdData.TT.setStopTime(getView().endTime);
+        ObdData.TT.setCreateAtTime(NumberUtil.getTime(getView().startTime).toString());
         APP.getInstances().getDaoSession().insert(ObdData.TT);
     }
 }

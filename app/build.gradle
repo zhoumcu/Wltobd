@@ -2,6 +2,10 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'org.greenrobot.greendao'
+greendao {
+    schemaVersion 1  //这是修改数据库版本号，一定要注意位置，在apply plugin: 'org.greenrobot.greendao'下面
+    targetGenDir 'src/main/java'
+}
 
 android {
     signingConfigs {
@@ -14,7 +18,7 @@ android {
     }
 
     compileSdkVersion 24
-    buildToolsVersion "24.0.0"
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.xiaoan.obd.obdproject"
         minSdkVersion 19
@@ -37,10 +41,6 @@ android {
         targetCompatibility 1.8
         sourceCompatibility 1.8
     }
-}
-
-greendao {
-    targetGenDir 'src/main/java'
 }
 
 dependencies {
@@ -75,7 +75,7 @@ dependencies {
     compile 'de.hdodenhof:circleimageview:2.1.0'
     //compile 'com.github.PhilJay:MPAndroidChart:v3.0.2'
     //compile 'com.github.PhilJay:MPAndroidChart:v3.0.0-beta1'
-    compile 'com.github.Idtk:SmallChart:v0.1.1'
+//    compile 'com.github.Idtk:SmallChart:v0.1.1'
 
     compile 'com.czp.arcProgressBar:ArcProgressBar:1.0.1'
     compile 'net.steamcrafted:load-toast:1.0.6'
@@ -83,4 +83,6 @@ dependencies {
     compile 'org.greenrobot:eventbus:3.0.0'
 
     compile 'com.github.paradoxie:AutoVerticalTextview:0.1'
+    //图片选择器
+    compile 'com.foamtrace:photopicker:1.0'
 }

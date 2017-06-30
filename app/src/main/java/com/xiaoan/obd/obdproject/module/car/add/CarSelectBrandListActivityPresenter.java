@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import com.jude.beam.expansion.BeamBasePresenter;
 import com.xiaoan.obd.obdproject.app.APP;
 import com.xiaoan.obd.obdproject.entity.CarBean;
+import com.xiaoan.obd.obdproject.utils.SharedPreferences;
 import com.xiaoan.obd.obdproject.widget.pinyin.CharacterParser;
 import com.xiaoan.obd.obdproject.widget.pinyin.PinyinComparator;
 import com.xiaoan.obd.obdproject.widget.pinyin.SideBar;
@@ -46,6 +47,8 @@ public class CarSelectBrandListActivityPresenter extends BeamBasePresenter<CarSe
         getView().recycler.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                //保存品牌logo方便之后使用
+                SharedPreferences.getInstance().putString("logo",((SortModel) adapter.getItem(position)).getEname());
                 Intent intent = new Intent(getView(),CarSelectSeriesListActivity.class);
                 intent.putExtra("id",((SortModel) adapter.getItem(position)).getId());
                 startActivity(intent);

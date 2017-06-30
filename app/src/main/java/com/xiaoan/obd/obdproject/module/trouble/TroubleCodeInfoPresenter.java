@@ -7,7 +7,7 @@ import com.jude.beam.expansion.data.BeamDataActivityPresenter;
 import com.xiaoan.obd.obdproject.app.APP;
 import com.xiaoan.obd.obdproject.entity.FaultCodeBean;
 import com.xiaoan.obd.obdproject.server.SchedulerTransform;
-import com.xiaoan.obd.obdproject.untils.Constants;
+import com.xiaoan.obd.obdproject.utils.Constants;
 
 import rx.Observable;
 import rx.Subscriber;

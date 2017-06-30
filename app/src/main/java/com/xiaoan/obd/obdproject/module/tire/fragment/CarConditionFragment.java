@@ -15,6 +15,7 @@ import com.jude.beam.expansion.data.BeamDataFragment;
 import com.xiaoan.obd.obdproject.R;
 import com.xiaoan.obd.obdproject.entity.ObdRT;
 import com.xiaoan.obd.obdproject.module.tire.TireHomeActivity;
+import com.xiaoan.obd.obdproject.utils.AppManager;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -96,14 +97,24 @@ public class CarConditionFragment extends BeamDataFragment<CarConditionPresenter
     @Override
     public void setData(ObdRT data) {
         super.setData(data);
-        tvSpeed.setText(data.getDrivingSpeed() + "");
-        tvUnit.setText(data.getRpm() + "");
-        tvSecondOil.setText(data.getInstantFuel() + "L/100km");
-        tvTemp.setText(data.getWaterTemp() + "℃");
-        tvPowerVoltage.setText(data.getBvatteryVol() + "v");
-        tvAirOpen.setText(data.getThrottle() + "%");
-        tvSurplusOil.setText(data.getSncode() + "");
-        tvTroublecode.setText(data.getFaultCodeNum() + "个故障码");
+        if (data ==null) return;
+        if(AppManager.isScreenChange(context)){
+            tvRevolution.setText(data.getAvgFuel()+"");
+            tvAvrSpeed.setText(data.getAvgSpeed()+"");
+            tvPay.setText(data.getDrivingFuel()+"");
+            tvOrientation.setText(data.getDrivingSpeed()+"");
+            tvTravel.setText(data.getTravelMileage()+"");
+        }else {
+            tvSpeed.setText(data.getDrivingSpeed() + "");
+            tvUnit.setText(data.getRpm() + "");
+            tvSecondOil.setText(data.getInstantFuel() + "L/100km");
+            tvTemp.setText(data.getWaterTemp() + "℃");
+            tvPowerVoltage.setText(data.getBvatteryVol() + "v");
+            tvAirOpen.setText(data.getThrottle() + "%");
+            tvSurplusOil.setText(data.getDrivingFuel() + "");
+            tvTroublecode.setText(data.getFaultCodeNum() + "个故障码");
+            tvAirSensor.setText(data.getBvatteryVol() + "v");
+        }
     }
     @Override
     public void onDestroyView() {

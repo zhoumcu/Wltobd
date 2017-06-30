@@ -2,8 +2,8 @@ package com.xiaoan.obd.obdproject.server.bluetooth;
 
 import com.xiaoan.obd.obdproject.entity.ObdRT;
 import com.xiaoan.obd.obdproject.entity.ObdTT;
-import com.xiaoan.obd.obdproject.untils.Logger;
-import com.xiaoan.obd.obdproject.untils.NumberUtil;
+import com.xiaoan.obd.obdproject.utils.Logger;
+import com.xiaoan.obd.obdproject.utils.NumberUtil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -285,8 +285,8 @@ public class ObdData {
 
     public static String LB = "";
     public static String RB = "";
-    public static String LA = "";
-    public static String RA = "";
+    public static String LF = "";
+    public static String RF = "";
 
     public static StringBuilder msg = new StringBuilder();
 
@@ -299,19 +299,19 @@ public class ObdData {
         doStatus(ObdData.RT.getFltireStatus());
         doTem(ObdData.RT.getFltireTemp());
         //付值
-        LB = msg.toString();
+        LF = msg.toString();
         //右前
         msg.delete(0,msg.length());
         doPsi(ObdData.RT.getFrtirePsi());
         doStatus(ObdData.RT.getFrtireStatus());
         doTem(ObdData.RT.getFrtireTemp());
-        RB = msg.toString();
+        RF = msg.toString();
         //左后
         msg.delete(0,msg.length());
         doPsi(ObdData.RT.getBltirePsi());
         doStatus(ObdData.RT.getBltireStatus());
         doTem(ObdData.RT.getBltireTemp());
-        LA = msg.toString();
+        LB = msg.toString();
         //右后
         msg.delete(0,msg.length());
         doPsi(ObdData.RT.getBrtirePsi());

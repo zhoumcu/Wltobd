@@ -15,9 +15,9 @@ import com.xiaoan.obd.obdproject.module.car.choose.ChooceCommonActivity;
 import com.xiaoan.obd.obdproject.server.DaggerServiceModelComponent;
 import com.xiaoan.obd.obdproject.server.SchedulerTransform;
 import com.xiaoan.obd.obdproject.server.ServiceAPI;
-import com.xiaoan.obd.obdproject.untils.AppManager;
-import com.xiaoan.obd.obdproject.untils.Constants;
-import com.xiaoan.obd.obdproject.untils.SharedPreferences;
+import com.xiaoan.obd.obdproject.utils.AppManager;
+import com.xiaoan.obd.obdproject.utils.Constants;
+import com.xiaoan.obd.obdproject.utils.SharedPreferences;
 
 import net.steamcrafted.loadtoast.LoadToast;
 
@@ -56,6 +56,7 @@ public class CarAllInfoPresenter extends BeamDataActivityPresenter<CarAllInfoAct
     }
     private void initData(boolean type){
         if(!type){
+            carBean.setBrandLogo(SharedPreferences.getInstance().getString("logo",""));
             Observable.create(new Observable.OnSubscribe<CarBean>() {
                 @Override
                 public void call(Subscriber<? super CarBean> subscriber) {

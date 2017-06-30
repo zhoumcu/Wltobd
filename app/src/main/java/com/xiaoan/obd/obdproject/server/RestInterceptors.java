@@ -50,6 +50,10 @@ public class RestInterceptors implements Interceptor {
                     case "status":
                         code = wrapper.getJSONObject(key).getInt("status");
                         if (code == 0)code=200;
+                        else if(code==2) {
+                            code=101;
+                            errorMessage = wrapper.getJSONObject(key).getString("msg");
+                        }
                         else {
                             code=400;
                             errorMessage = wrapper.getJSONObject(key).getString("msg");
